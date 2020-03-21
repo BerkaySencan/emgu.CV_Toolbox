@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "emgu.CV_Toolbox", "emgu.CV_Toolbox\emgu.CV_Toolbox.csproj", "{CD7E3A0A-11FC-498D-8D74-75F532E5D3F5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD7E3A0A-11FC-498D-8D74-75F532E5D3F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD7E3A0A-11FC-498D-8D74-75F532E5D3F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD7E3A0A-11FC-498D-8D74-75F532E5D3F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD7E3A0A-11FC-498D-8D74-75F532E5D3F5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {51307BE4-FBBF-495C-86FF-262E3F7A0620}
+	EndGlobalSection
+EndGlobal
