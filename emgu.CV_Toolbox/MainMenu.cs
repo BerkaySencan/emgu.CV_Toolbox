@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using emgu.CV_Toolbox.Image_Processing_BLL;
 
 namespace emgu.CV_Toolbox
 {
     public partial class MainMenu : Form
     {
-        
+        Mean_Shift MN = new Mean_Shift();
 
         public MainMenu()
         {
@@ -52,10 +53,12 @@ namespace emgu.CV_Toolbox
             //your codes
             //..
             hideSubMenu();
+            
         }
 
         private void btn_Image_2_Click_1(object sender, EventArgs e)
         {
+            openChildForm(new Image_Proccesing.MeanShift_Form());
             //..
             //your codes
             //..
@@ -193,6 +196,15 @@ namespace emgu.CV_Toolbox
             
         }
 
-    
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+            
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

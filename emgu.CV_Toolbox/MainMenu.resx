@@ -267,6 +267,11 @@
         +BKW+Ba+hCW+hS9hiW/hQ4j8P3wxBv78urE4AAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="textBox3.Text" xml:space="preserve">
+    <value>_BLL İle Baslayan Dosyalarda Ana işlemleri Yapıcagımız Classlar _PL ile Biten Dosyalarında Altındada Oluşturacagımız Formlar Bulunacak Formlarda Classları Kullanmak için Öncellikle Using ile Formun bulundugu katmanaı atıyorum Image_Processing_BLL eklemeniz gerekiyor ondan sonra classları new ile oluşturup yazdıgınız fonksiyonları çağırabilirsiniz.
+Oluşturudugunuz Classları Base ImageProces ise ImgBase classından ML ise ML base classından inherit edin " YAPCAĞINIZ VİDEOLARI WP DEN SÖYLEYELİM Kİ AYNI ANDA AYNI ŞEYLERİ YAPMAYALIM"
+ "</value>
+  </data>
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAABGdBTUEAALGPC/xhBQAAAVBQTFRF////

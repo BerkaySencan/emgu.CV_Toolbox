@@ -57,6 +57,7 @@
             this.btnMachineLearning = new System.Windows.Forms.Button();
             this.panelImageProcessing = new System.Windows.Forms.Panel();
             this.btn_Image_4 = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelChildForm.SuspendLayout();
@@ -69,6 +70,7 @@
             // 
             // btnImageProcessing
             // 
+            this.btnImageProcessing.BackColor = System.Drawing.Color.Black;
             this.btnImageProcessing.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnImageProcessing.FlatAppearance.BorderSize = 0;
             this.btnImageProcessing.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
@@ -85,7 +87,7 @@
             this.btnImageProcessing.Text = "  Image Processing";
             this.btnImageProcessing.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnImageProcessing.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnImageProcessing.UseVisualStyleBackColor = true;
+            this.btnImageProcessing.UseVisualStyleBackColor = false;
             this.btnImageProcessing.Click += new System.EventHandler(this.btnImageProcessing_Click_1);
             // 
             // btn_Image_3
@@ -125,6 +127,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // btn_Image_2
             // 
@@ -139,7 +142,7 @@
             this.btn_Image_2.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btn_Image_2.Size = new System.Drawing.Size(229, 40);
             this.btn_Image_2.TabIndex = 2;
-            this.btn_Image_2.Text = "Alt Başlık";
+            this.btn_Image_2.Text = "Deneme 2";
             this.btn_Image_2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Image_2.UseVisualStyleBackColor = true;
             this.btn_Image_2.Click += new System.EventHandler(this.btn_Image_2_Click_1);
@@ -157,7 +160,7 @@
             this.btn_Image_1.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.btn_Image_1.Size = new System.Drawing.Size(229, 40);
             this.btn_Image_1.TabIndex = 1;
-            this.btn_Image_1.Text = "Alt Başlık";
+            this.btn_Image_1.Text = "Adaptive Theresholding";
             this.btn_Image_1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Image_1.UseVisualStyleBackColor = true;
             this.btn_Image_1.Click += new System.EventHandler(this.btn_Image_1_Click_1);
@@ -167,19 +170,20 @@
             this.panelChildForm.BackColor = System.Drawing.Color.Transparent;
             this.panelChildForm.Controls.Add(this.listBox1);
             this.panelChildForm.Controls.Add(this.textBox2);
+            this.panelChildForm.Controls.Add(this.textBox3);
             this.panelChildForm.Controls.Add(this.textBox1);
             this.panelChildForm.Controls.Add(this.pictureBox2);
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildForm.Location = new System.Drawing.Point(250, 0);
             this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(1048, 562);
+            this.panelChildForm.Size = new System.Drawing.Size(1068, 577);
             this.panelChildForm.TabIndex = 5;
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(124, 279);
+            this.listBox1.Location = new System.Drawing.Point(112, 3);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(813, 228);
             this.listBox1.TabIndex = 2;
@@ -188,7 +192,7 @@
             // 
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox2.Location = new System.Drawing.Point(298, 207);
+            this.textBox2.Location = new System.Drawing.Point(298, 157);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
@@ -196,6 +200,7 @@
             this.textBox2.TabIndex = 1;
             this.textBox2.Text = "Referanslar";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox1
             // 
@@ -238,7 +243,7 @@
             this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
             this.panelSideMenu.Name = "panelSideMenu";
-            this.panelSideMenu.Size = new System.Drawing.Size(250, 562);
+            this.panelSideMenu.Size = new System.Drawing.Size(250, 577);
             this.panelSideMenu.TabIndex = 3;
             // 
             // btnExit
@@ -528,11 +533,24 @@
             this.btn_Image_4.UseVisualStyleBackColor = true;
             this.btn_Image_4.Click += new System.EventHandler(this.btn_Image_4_Click_1);
             // 
+            // textBox3
+            // 
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBox3.Location = new System.Drawing.Point(3, 243);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(1065, 479);
+            this.textBox3.TabIndex = 1;
+            this.textBox3.Text = resources.GetString("textBox3.Text");
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1298, 562);
+            this.ClientSize = new System.Drawing.Size(1318, 577);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panelSideMenu);
             this.Name = "MainMenu";
@@ -582,6 +600,7 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }
 

@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace emgu.CV_Toolbox.Image_Proccesing
+namespace emgu.CV_Toolbox.Machine_Learning
 {
-    public partial class ImageProccesing_Main : Form
+    public partial class MachineLearning_Main : Form
     {
-        public ImageProccesing_Main()
+        public MachineLearning_Main()
         {
             InitializeComponent();
+        }
+
+        private void MachineLearning_Main_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace emgu.CV_Toolbox.Machine_Learning
+namespace emgu.CV_Toolbox.Image_Proccesing
 {
-    public partial class MachineLearning_Main : Form
+    public partial class MeanShift_Form : Form
     {
-        public MachineLearning_Main()
+        public MeanShift_Form()
         {
             InitializeComponent();
         }
