@@ -13,7 +13,7 @@ namespace emgu.CV_Toolbox.Image_Processing_BLL
   public  class Mean_Shift : ImgProcessing_Base
     {
         
-        public Image<Bgra,byte> CalcuateMeanshift(Image<Bgra, byte> imgInput, int spatialWindow = 5, int colorWindow = 5, int MinSegmentSize = 20)
+        public Image<Bgra,byte> CalcuateMeanshift(Image<Bgra, byte> imgInput, int spatialWindow = 5, int colorWindow = 5, int MinSegmentSize = 20,int Iteration=1)
         {
 
            
@@ -22,7 +22,7 @@ namespace emgu.CV_Toolbox.Image_Processing_BLL
                 //convert the image to BGRA as it requires a BGRA to pass it in constructor of CudaImage
                
                 CudaImage<Bgra, byte> _inputCuda = new CudaImage<Bgra, byte>(imgInput);
-                CudaInvoke.MeanShiftSegmentation(_inputCuda, imgOutput, spatialWindow, colorWindow, MinSegmentSize, new MCvTermCriteria(1, .001), null);
+                CudaInvoke.MeanShiftSegmentation(_inputCuda, imgOutput, spatialWindow, colorWindow, MinSegmentSize, new MCvTermCriteria(Iteration),null);
            
             return imgOutput;
 

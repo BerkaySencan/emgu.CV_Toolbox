@@ -2,6 +2,8 @@
 using Emgu.CV.Structure;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using Emgu.CV.UI;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,9 +14,10 @@ namespace emgu.CV_Toolbox.Image_Processing_BLL
 {
  public class ImgProcessing_Base
     {
-        //Bazı durumlarda Burada ki methodalara extra bişeyler eklemeniz gerekirse oluşturdugunuz çlass içinde
-        //override işlemi yapıp buradaki methodları ezebilirisinz örneğin ;
-        //public override Bitmap OpenImage(){} ... deyip kendi clasınızda tekrar içini doldurabilirisinz.
+        private Image<Bgra, byte> inputImg;
+        private string imgPath="";
+        ImageBox _imgBox;
+    
         public virtual Image<Bgra,byte> OpenImage()
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -28,7 +31,36 @@ namespace emgu.CV_Toolbox.Image_Processing_BLL
           
            
         }
+        public virtual void Async_OpenImage(ImageBox imgBox)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            _imgBox = imgBox;
 
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                BackgroundWorker bgw = new BackgroundWorker();
+                bgw.WorkerReportsProgress = false;
+                bgw.DoWork += Bgw_DoWork;   
+                bgw.RunWorkerCompleted += Bgw_RunWorkerCompleted;
+                imgPath = ofd.FileName;
+                bgw.RunWorkerAsync();
+
+                
+            }
+            
+
+
+        }
+
+        private void Bgw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            _imgBox.Image = inputImg;
+        }
+
+        private void Bgw_DoWork(object sender, DoWorkEventArgs e)
+        {
+            inputImg = new Image<Bgra, byte>(imgPath);
+        }
 
         public virtual void ShowImage(string path,string ImageName)
         {

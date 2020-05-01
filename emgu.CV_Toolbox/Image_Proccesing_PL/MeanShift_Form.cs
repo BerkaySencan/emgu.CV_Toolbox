@@ -24,11 +24,27 @@ namespace emgu.CV_Toolbox.Image_Proccesing
         ThreshHolding TH = new ThreshHolding();
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            ımageBox1.Image =  MN.OpenImage();
-            // ımageBox1.Image = ED.Sobel_Detector((Image<Bgra,byte>)ımageBox1.Image);
-           // ımageBox1.Image = TH.Cal_ThresHolding((Image<Bgra, byte>) ımageBox1.Image, Emgu.CV.CvEnum.ThresholdType.Binary);
+             MN.Async_OpenImage(ımageBox1);
 
+            // ımageBox1.Image =  MN.OpenImage();
+
+            // ımageBox1.Image = ED.Sobel_Detector((Image<Bgra,byte>)ımageBox1.Image);
+
+            // ımageBox1.Image = TH.Cal_ThresHolding((Image<Bgra, byte>) ımageBox1.Image, Emgu.CV.CvEnum.ThresholdType.Binary);
+
+            // ımageBox1.Image = TH.Cal_Adaptive_ThresHolding((Image<Bgra, byte>)ımageBox1.Image,
+            //    Emgu.CV.CvEnum.ThresholdType.Binary,
+            //    Emgu.CV.CvEnum.AdaptiveThresholdType.GaussianC,
+            //    3,//BlockSize
+            //    255,//MaxValue
+            //    0);//Parameter
+
+            // ımageBox1.Image = MN.CalcuateMeanshift((Image<Bgra, byte>)ımageBox1.Image,
+            //    5,//spatialWindow
+            //    5,//colorWindow
+            //    20,//MinSegmentSize
+            //    10);//Iteration
+               
         }
 
         private void MeanShift_Form_Load(object sender, EventArgs e)
