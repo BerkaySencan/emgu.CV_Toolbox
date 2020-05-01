@@ -16,27 +16,17 @@ namespace emgu.CV_Toolbox.Image_Processing_BLL
         public Image<Bgra,byte> CalcuateMeanshift(Image<Bgra, byte> imgInput, int spatialWindow = 5, int colorWindow = 5, int MinSegmentSize = 20)
         {
 
-            //if (imgInput == null)
-            //{
-            //    return;
-            //}
-            //try
-            //{
+           
             Image<Bgra, byte> imgOutput = new Image<Bgra, byte>(imgInput.Width, imgInput.Height, new Bgra(0, 0, 0, 0));
 
                 //convert the image to BGRA as it requires a BGRA to pass it in constructor of CudaImage
                
                 CudaImage<Bgra, byte> _inputCuda = new CudaImage<Bgra, byte>(imgInput);
-                //CudaInvoke.MeanShiftSegmentation(_inputCuda, imgOutput, spatialWindow, colorWindow, MinSegmentSize, new MCvTermCriteria(1, .001));
-            /* pictureBox2.Image =*/
+                CudaInvoke.MeanShiftSegmentation(_inputCuda, imgOutput, spatialWindow, colorWindow, MinSegmentSize, new MCvTermCriteria(1, .001), null);
+           
             return imgOutput;
 
-            //}
-            //catch (Exception ex)
-            //{
-              //return
-              //      MessageBox.Show("Meam shift error: " + ex.Message);
-            //}
+        
         }
   
 

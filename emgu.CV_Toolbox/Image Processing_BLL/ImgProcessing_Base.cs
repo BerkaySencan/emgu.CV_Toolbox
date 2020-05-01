@@ -15,14 +15,14 @@ namespace emgu.CV_Toolbox.Image_Processing_BLL
         //Bazı durumlarda Burada ki methodalara extra bişeyler eklemeniz gerekirse oluşturdugunuz çlass içinde
         //override işlemi yapıp buradaki methodları ezebilirisinz örneğin ;
         //public override Bitmap OpenImage(){} ... deyip kendi clasınızda tekrar içini doldurabilirisinz.
-        public virtual Bitmap OpenImage()
+        public virtual Image<Bgra,byte> OpenImage()
         {
             OpenFileDialog ofd = new OpenFileDialog();
           
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                 return new Image<Bgra, byte>(ofd.FileName).Bitmap;
+                 return new Image<Bgra, byte>(ofd.FileName);
             }
             return null;
           

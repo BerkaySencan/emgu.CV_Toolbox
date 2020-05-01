@@ -29,11 +29,47 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.ımageBox1 = new Emgu.CV.UI.ImageBox();
+            this.button1 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.ımageBox1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // ımageBox1
+            // 
+            this.ımageBox1.Location = new System.Drawing.Point(12, 35);
+            this.ımageBox1.Name = "ımageBox1";
+            this.ımageBox1.Size = new System.Drawing.Size(591, 349);
+            this.ımageBox1.TabIndex = 2;
+            this.ımageBox1.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(695, 124);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(68, 69);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // MeanShift_Form
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1228, 533);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ımageBox1);
+            this.Name = "MeanShift_Form";
             this.Text = "MeanShift_Form";
+            this.Load += new System.EventHandler(this.MeanShift_Form_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.ımageBox1)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private Emgu.CV.UI.ImageBox ımageBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
