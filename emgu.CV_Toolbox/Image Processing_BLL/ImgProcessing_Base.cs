@@ -31,6 +31,20 @@ namespace emgu.CV_Toolbox.Image_Processing_BLL
           
            
         }
+
+        public virtual Image<Bgr, byte> Bgr_OpenImage()
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                return new Image<Bgr, byte>(ofd.FileName);
+            }
+            return null;
+
+
+        }
         public virtual void Async_OpenImage(ImageBox imgBox)
         {
             OpenFileDialog ofd = new OpenFileDialog();

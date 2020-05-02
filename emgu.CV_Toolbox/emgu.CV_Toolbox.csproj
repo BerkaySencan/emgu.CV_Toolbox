@@ -80,7 +80,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Image Processing_BLL\Contour_Extraction.cs" />
     <Compile Include="Image Processing_BLL\Edge_Detection.cs" />
+    <Compile Include="Image Processing_BLL\Morphology.cs" />
+    <Compile Include="Image Processing_BLL\Segmentation.cs" />
     <Compile Include="Image Processing_BLL\ThreshHolding.cs" />
     <Compile Include="Image_Proccesing_PL\Adaptive_Theresholding.cs">
       <SubType>Form</SubType>

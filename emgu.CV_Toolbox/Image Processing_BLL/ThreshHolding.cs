@@ -14,7 +14,7 @@ namespace emgu.CV_Toolbox.Image_Processing_BLL
         private Image<Gray, byte> GrayImage;
         private Image<Gray, byte> BinarazitonImage;
 
-        public Image<Gray, byte> Cal_ThresHolding(Image<Bgra, byte> Img, Emgu.CV.CvEnum.ThresholdType thresholdType, double threshold = 40.0, double maxValue = 255)
+        public Image<Gray, byte> Cal_ThresHolding(Image<Bgr, byte> Img, Emgu.CV.CvEnum.ThresholdType thresholdType, double threshold = 40.0, double maxValue = 255)
         {
             Image<Gray, byte> GrayImage = Img.Convert<Gray, byte>();
 
@@ -28,7 +28,7 @@ namespace emgu.CV_Toolbox.Image_Processing_BLL
       
         
         
-        public Image<Gray, byte> Cal_Adaptive_ThresHolding(Image<Bgra, byte> Img, Emgu.CV.CvEnum.ThresholdType thresholdType,Emgu.CV.CvEnum.AdaptiveThresholdType AdaptiveTheresholdType, int blockSize = 5, double maxValue = 255,double prmtr=0.0)
+        public Image<Gray, byte> Cal_Adaptive_ThresHolding(Image<Bgr, byte> Img, Emgu.CV.CvEnum.ThresholdType thresholdType,Emgu.CV.CvEnum.AdaptiveThresholdType AdaptiveTheresholdType, int blockSize = 5, double maxValue = 255,double prmtr=0.0)
         {
             Image<Gray, byte> GrayImage = Img.Convert<Gray, byte>();
 

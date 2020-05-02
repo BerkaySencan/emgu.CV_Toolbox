@@ -36,9 +36,9 @@
             // 
             // ımageBox1
             // 
-            this.ımageBox1.Location = new System.Drawing.Point(12, 35);
+            this.ımageBox1.Location = new System.Drawing.Point(47, 58);
             this.ımageBox1.Name = "ımageBox1";
-            this.ımageBox1.Size = new System.Drawing.Size(591, 349);
+            this.ımageBox1.Size = new System.Drawing.Size(472, 418);
             this.ımageBox1.TabIndex = 2;
             this.ımageBox1.TabStop = false;
             // 
