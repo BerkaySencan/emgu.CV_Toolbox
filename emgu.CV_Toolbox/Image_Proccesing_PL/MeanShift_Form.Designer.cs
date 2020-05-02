@@ -31,7 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.ımageBox1 = new Emgu.CV.UI.ImageBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.ımageBox2 = new Emgu.CV.UI.ImageBox();
             ((System.ComponentModel.ISupportInitialize)(this.ımageBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ımageBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // ımageBox1
@@ -44,7 +46,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(695, 124);
+            this.button1.Location = new System.Drawing.Point(574, 108);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(68, 69);
             this.button1.TabIndex = 3;
@@ -52,17 +54,27 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // ımageBox2
+            // 
+            this.ımageBox2.Location = new System.Drawing.Point(689, 58);
+            this.ımageBox2.Name = "ımageBox2";
+            this.ımageBox2.Size = new System.Drawing.Size(323, 402);
+            this.ımageBox2.TabIndex = 2;
+            this.ımageBox2.TabStop = false;
+            // 
             // MeanShift_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1228, 533);
+            this.Controls.Add(this.ımageBox2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ımageBox1);
             this.Name = "MeanShift_Form";
             this.Text = "MeanShift_Form";
             this.Load += new System.EventHandler(this.MeanShift_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ımageBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ımageBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -71,5 +83,6 @@
 
         private Emgu.CV.UI.ImageBox ımageBox1;
         private System.Windows.Forms.Button button1;
+        private Emgu.CV.UI.ImageBox ımageBox2;
     }
 }

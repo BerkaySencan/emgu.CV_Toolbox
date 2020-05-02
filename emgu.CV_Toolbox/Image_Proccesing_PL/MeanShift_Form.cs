@@ -19,6 +19,7 @@ namespace emgu.CV_Toolbox.Image_Proccesing
         {
             InitializeComponent();
         }
+        // Test 
         Mean_Shift MN = new Mean_Shift();
         Edge_Detection ED = new Edge_Detection();
         ThreshHolding TH = new ThreshHolding();
@@ -30,7 +31,7 @@ namespace emgu.CV_Toolbox.Image_Proccesing
             // MN.Async_OpenImage(ımageBox1);
             
              ımageBox1.Image =  MN.Bgr_OpenImage();
-
+           //  ımageBox2.Image = CE.findContours_bySize((Image<Bgr,byte>)ımageBox1.Image,10,10,1000);
             // ımageBox1.Image = ED.Sobel_Detector((Image<Bgra,byte>)ımageBox1.Image);
 
             // ımageBox1.Image = TH.Cal_ThresHolding((Image<Bgr, byte>)ımageBox1.Image, Emgu.CV.CvEnum.ThresholdType.Binary);

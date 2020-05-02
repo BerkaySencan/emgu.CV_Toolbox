@@ -11,7 +11,7 @@ namespace emgu.CV_Toolbox.Image_Processing_BLL
 {
     class ThreshHolding : ImgProcessing_Base
     {
-        private Image<Gray, byte> GrayImage;
+        
         private Image<Gray, byte> BinarazitonImage;
 
         public Image<Gray, byte> Cal_ThresHolding(Image<Bgr, byte> Img, Emgu.CV.CvEnum.ThresholdType thresholdType, double threshold = 40.0, double maxValue = 255)
