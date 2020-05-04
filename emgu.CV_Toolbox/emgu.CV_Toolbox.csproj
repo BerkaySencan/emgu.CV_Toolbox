@@ -91,11 +91,11 @@
     <Compile Include="Image_Proccesing_PL\Adaptive_Theresholding.Designer.cs">
       <DependentUpon>Adaptive_Theresholding.cs</DependentUpon>
     </Compile>
-    <Compile Include="Image_Proccesing_PL\MeanShift_Form.cs">
+    <Compile Include="Image_Proccesing_PL\Image_Processing_Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Image_Proccesing_PL\MeanShift_Form.Designer.cs">
-      <DependentUpon>MeanShift_Form.cs</DependentUpon>
+    <Compile Include="Image_Proccesing_PL\Image_Processing_Main.Designer.cs">
+      <DependentUpon>Image_Processing_Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Image Processing_BLL\ImgProcessing_Base.cs" />
     <Compile Include="Image Processing_BLL\Mean_Shift.cs" />
@@ -116,8 +116,8 @@
     <EmbeddedResource Include="Image_Proccesing_PL\Adaptive_Theresholding.resx">
       <DependentUpon>Adaptive_Theresholding.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Image_Proccesing_PL\MeanShift_Form.resx">
-      <DependentUpon>MeanShift_Form.cs</DependentUpon>
+    <EmbeddedResource Include="Image_Proccesing_PL\Image_Processing_Main.resx">
+      <DependentUpon>Image_Processing_Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Machine Learning_PL\MachineLearning_Main.resx">
       <DependentUpon>MachineLearning_Main.cs</DependentUpon>

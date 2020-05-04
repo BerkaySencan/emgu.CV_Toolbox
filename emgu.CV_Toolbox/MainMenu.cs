@@ -58,7 +58,7 @@ namespace emgu.CV_Toolbox
 
         private void btn_Image_2_Click_1(object sender, EventArgs e)
         {
-            openChildForm(new Image_Proccesing.MeanShift_Form());
+            openChildForm(new Image_Proccesing.Image_Processing_Main());
             //..
             //your codes
             //..

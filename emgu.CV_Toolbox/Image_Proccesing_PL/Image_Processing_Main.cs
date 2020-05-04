@@ -13,13 +13,15 @@ using Emgu.CV.Structure;
 
 namespace emgu.CV_Toolbox.Image_Proccesing
 {
-    public partial class MeanShift_Form : Form
+    public partial class Image_Processing_Main : Form
     {
-        public MeanShift_Form()
+        public Image_Processing_Main()
         {
             InitializeComponent();
         }
-        // Test 
+        
+     
+        // Test       
         Mean_Shift MN = new Mean_Shift();
         Edge_Detection ED = new Edge_Detection();
         ThreshHolding TH = new ThreshHolding();
@@ -65,7 +67,22 @@ namespace emgu.CV_Toolbox.Image_Proccesing
 
         }
 
-        private void MeanShift_Form_Load(object sender, EventArgs e)
+        private void Image_Processing_Main_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void ımageProccesiingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void colorToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
