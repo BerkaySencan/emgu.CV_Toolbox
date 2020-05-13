@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace emgu.CV_Toolbox.Image_Processing_BLL
 {
  public class ImgProcessing_Base
@@ -25,7 +26,10 @@ namespace emgu.CV_Toolbox.Image_Processing_BLL
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                 return new Image<Bgra, byte>(ofd.FileName);
+                
+    
+
+                return new Image<Bgra, byte>(ofd.FileName);
             }
             return null;
           
