@@ -80,6 +80,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Image Processing_BLL\Feature_Detection.cs" />
     <Compile Include="Image Processing_BLL\Image_Converter.cs" />
     <Compile Include="Image Processing_BLL\Contour_Extraction.cs" />
     <Compile Include="Image Processing_BLL\Edge_Detection.cs" />
@@ -102,6 +103,18 @@
     </Compile>
     <Compile Include="Image Processing_BLL\ImgProcessing_Base.cs" />
     <Compile Include="Image Processing_BLL\Mean_Shift.cs" />
+    <Compile Include="Image_Proccesing_PL\Bar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Image_Proccesing_PL\Bar.Designer.cs">
+      <DependentUpon>Bar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Image_Proccesing_PL\TwoBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Image_Proccesing_PL\TwoBar.Designer.cs">
+      <DependentUpon>TwoBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Machine Learning_PL\MachineLearning_Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +134,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Image_Proccesing_PL\Image_Processing_Main.resx">
       <DependentUpon>Image_Processing_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Image_Proccesing_PL\Bar.resx">
+      <DependentUpon>Bar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Image_Proccesing_PL\TwoBar.resx">
+      <DependentUpon>TwoBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Machine Learning_PL\MachineLearning_Main.resx">
       <DependentUpon>MachineLearning_Main.cs</DependentUpon>

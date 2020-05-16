@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using emgu.CV_Toolbox.Image_Proccesing_PL;
 using emgu.CV_Toolbox.Image_Processing_BLL;
 using Emgu.CV;
 using Emgu.CV.CvEnum;
@@ -41,6 +42,7 @@ namespace emgu.CV_Toolbox.Image_Proccesing
         Segmentation SG = new Segmentation();
         Contour_Extraction CE = new Contour_Extraction();
         Image_Converter IC = new Image_Converter();
+        Feature_Detection FD = new Feature_Detection();
         Image<Gray, byte> GrayImage;
         Image<Gray, float> GrayImageFloat;
         Image<Bgr, byte> BgrImage;
@@ -123,7 +125,7 @@ namespace emgu.CV_Toolbox.Image_Proccesing
 
                 //  pictureBox1.Image = SG.RangeFilter(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>(), 10, 100).AsBitmap();
                 //pictureBox1.Image = ED.Convex_Hull(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>());
-                //pictureBox1.Image = BgrImage.AsBitmap();
+                pictureBox1.Image = BgrImage.AsBitmap();
             }
             catch (Exception ex)
             {
@@ -341,6 +343,8 @@ namespace emgu.CV_Toolbox.Image_Proccesing
                                                   Emgu.CV.CvEnum.TemplateMatchingType.Sqdiff);
         }
 
+        // ****** --------------   Start  Matcher  -------------- ****** //
+
         private void multiScaleTemplateMatchingToolStripMenuItem1_Click(object sender, EventArgs e)
         {
 
@@ -362,6 +366,210 @@ namespace emgu.CV_Toolbox.Image_Proccesing
             Matcher mh = new Matcher();
             pictureBox1.Image = mh.FLANNMatcher(imgList["Template"].Clone(), imgList["Input"].Clone());
         }
+
+        // ****** --------------   End  Matcher  -------------- ****** //
+
+
+
+        // ****** --------------   Start  Feature Detection  -------------- ****** //
+        private void mSERDetectorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                try
+                {
+                    pictureBox1.Image = FD.MSER_Detector(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>());
+                }
+                catch (Exception msg)
+                {
+
+                    MessageBox.Show(msg.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("First, Select Image");
+            }
+        }
+
+        private void harrisDetectorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                try
+                {
+                    Bar frmBar = new Bar(pictureBox1, this, "Thersholding value", 0, 255, 180);
+                    frmBar.OnApply += FD.Harris_Detector;
+                    frmBar.ShowDialog();
+                }
+                catch (Exception msg)
+                {
+
+                    MessageBox.Show(msg.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("First, Select Image");
+            }
+
+
+
+        }
+
+        private void shiThomasiDetectorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                try
+                {
+                    pictureBox1.Image = FD.Shi_Thomasi_Detector(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>());
+                }
+                catch (Exception msg)
+                {
+
+                    MessageBox.Show(msg.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("First, Select Image");
+            }
+    
+            
+        }
+
+        private void fastDetectorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                try
+                {
+                    Bar frmBar = new Bar(pictureBox1, this, "Thersholding value", 0, 255, 180);
+                    frmBar.OnApply += FD.Fast_Detector;
+                    frmBar.ShowDialog();
+                }
+                catch (Exception msg)
+                {
+
+                    MessageBox.Show(msg.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("First, Select Image");
+            }
+        }
+
+        private void oRBDetectorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                try
+                {
+                    pictureBox1.Image = FD.ORB_Detector(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>());
+                }
+                catch (Exception msg)
+                {
+
+                    MessageBox.Show(msg.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("First, Select Image");
+            }
+        }
+
+        // ****** --------------   End  Feature Detection  -------------- ****** //
+
+        // ****** --------------   Start  Edge Detection  -------------- ****** //
+
+        private void cannyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                try
+                {
+                    TwoBar frmBar = new TwoBar(pictureBox1, this,
+                        "Thersholding value", 0, 255, 180,
+                        "Thersholding Linking", 0, 255, 180);
+                    frmBar.OnApply += ED.Canny_Detector;
+                    frmBar.ShowDialog();
+                }
+                catch (Exception msg)
+                {
+
+                    MessageBox.Show(msg.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("First, Select Image");
+            }
+        }
+
+        private void sobelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                try
+                {
+                    pictureBox1.Image = ED.Sobel_Detector(new Bitmap(pictureBox1.Image).ToImage<Gray, byte>()).AsBitmap<Gray,float>();
+                }
+                catch (Exception msg)
+                {
+
+                    MessageBox.Show(msg.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("First, Select Image");
+            }
+        }
+
+        private void lablacianToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                try
+                {
+                    pictureBox1.Image = ED.Laplacian_Detector(new Bitmap(pictureBox1.Image).ToImage<Bgra, byte>()).AsBitmap();
+                }
+                catch (Exception msg)
+                {
+
+                    MessageBox.Show(msg.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("First, Select Image");
+            }
+        }
+
+        private void convexHullToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                try
+                {
+                    pictureBox1.Image = ED.Convex_Hull(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>());
+                }
+                catch (Exception msg)
+                {
+
+                    MessageBox.Show(msg.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("First, Select Image");
+            }
+        }
+
+        // ****** --------------   End  Edge Detection  -------------- ****** //
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {

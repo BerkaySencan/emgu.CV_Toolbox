@@ -23,6 +23,7 @@ namespace emgu.CV_Toolbox.Image_Processing_BLL
                
                 CudaImage<Bgra, byte> _inputCuda = new CudaImage<Bgra, byte>(imgInput);
                 CudaInvoke.MeanShiftSegmentation(_inputCuda, imgOutput, spatialWindow, colorWindow, MinSegmentSize, new MCvTermCriteria(Iteration),null);
+                
            
             return imgOutput;
 

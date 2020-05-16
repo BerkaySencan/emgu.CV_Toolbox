@@ -13,10 +13,11 @@ namespace emgu.CV_Toolbox.Image_Processing_BLL
 {
     class Edge_Detection
     {
-        public Image<Gray, byte> Canny_Detector(Image<Bgra, byte> img,double thresh=40.0,double threshLinking=10.0)
+        public Bitmap Canny_Detector(Image<Bgra, byte> img,double thresh=40.0,double threshLinking=10.0)
         {
             Image<Gray, byte> _imgCanny = new Image<Gray, byte>(img.Width, img.Height, new Gray(0));
-            return img.Canny(thresh, threshLinking);
+
+            return img.Canny(thresh, threshLinking).AsBitmap<Gray,byte>();
         }
         public Image<Gray, float> Sobel_Detector(Image<Gray, byte> img)
         {

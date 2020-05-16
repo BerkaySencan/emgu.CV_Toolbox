@@ -35,12 +35,35 @@
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ımageProccesiingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.featureDetectorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.harrisDetectorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.shiThomasiDetectorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fastDetectorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oRBDetectorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mSERDetectorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.edgeDetectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cannyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sobelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lablacianToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.convexHullToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contourExtractionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.findContourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.findContourBySizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.morpholocigalOperationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.meanShiftSegmentationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.overlayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thersholdingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adaptiveThersholdingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ımageDetectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oCRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.selectTemplateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.templateMatchingToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aasdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.multiScaleTemplateMatchingToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.featureMatchingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bruteForceMatcherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fLANNMatcherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.templateMatchingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.selectRoiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,9 +83,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.featureMatchingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bruteForceMatcherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fLANNMatcherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -129,10 +149,163 @@
             // 
             // ımageProccesiingToolStripMenuItem
             // 
+            this.ımageProccesiingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.featureDetectorsToolStripMenuItem,
+            this.edgeDetectionToolStripMenuItem,
+            this.contourExtractionToolStripMenuItem,
+            this.morpholocigalOperationToolStripMenuItem,
+            this.meanShiftSegmentationToolStripMenuItem,
+            this.overlayToolStripMenuItem,
+            this.rToolStripMenuItem,
+            this.thersholdingToolStripMenuItem,
+            this.adaptiveThersholdingToolStripMenuItem});
             this.ımageProccesiingToolStripMenuItem.Name = "ımageProccesiingToolStripMenuItem";
             this.ımageProccesiingToolStripMenuItem.Size = new System.Drawing.Size(139, 24);
             this.ımageProccesiingToolStripMenuItem.Text = "Image Processing";
             this.ımageProccesiingToolStripMenuItem.Click += new System.EventHandler(this.ımageProccesiingToolStripMenuItem_Click);
+            // 
+            // featureDetectorsToolStripMenuItem
+            // 
+            this.featureDetectorsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.harrisDetectorToolStripMenuItem,
+            this.shiThomasiDetectorToolStripMenuItem,
+            this.fastDetectorToolStripMenuItem,
+            this.oRBDetectorToolStripMenuItem,
+            this.mSERDetectorToolStripMenuItem});
+            this.featureDetectorsToolStripMenuItem.Name = "featureDetectorsToolStripMenuItem";
+            this.featureDetectorsToolStripMenuItem.Size = new System.Drawing.Size(261, 26);
+            this.featureDetectorsToolStripMenuItem.Text = "Feature Detectors";
+            // 
+            // harrisDetectorToolStripMenuItem
+            // 
+            this.harrisDetectorToolStripMenuItem.Name = "harrisDetectorToolStripMenuItem";
+            this.harrisDetectorToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
+            this.harrisDetectorToolStripMenuItem.Text = "Harris Detector";
+            this.harrisDetectorToolStripMenuItem.Click += new System.EventHandler(this.harrisDetectorToolStripMenuItem_Click);
+            // 
+            // shiThomasiDetectorToolStripMenuItem
+            // 
+            this.shiThomasiDetectorToolStripMenuItem.Name = "shiThomasiDetectorToolStripMenuItem";
+            this.shiThomasiDetectorToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
+            this.shiThomasiDetectorToolStripMenuItem.Text = "Shi-Thomasi Detector";
+            this.shiThomasiDetectorToolStripMenuItem.Click += new System.EventHandler(this.shiThomasiDetectorToolStripMenuItem_Click);
+            // 
+            // fastDetectorToolStripMenuItem
+            // 
+            this.fastDetectorToolStripMenuItem.Name = "fastDetectorToolStripMenuItem";
+            this.fastDetectorToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
+            this.fastDetectorToolStripMenuItem.Text = "Fast Detector";
+            this.fastDetectorToolStripMenuItem.Click += new System.EventHandler(this.fastDetectorToolStripMenuItem_Click);
+            // 
+            // oRBDetectorToolStripMenuItem
+            // 
+            this.oRBDetectorToolStripMenuItem.Name = "oRBDetectorToolStripMenuItem";
+            this.oRBDetectorToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
+            this.oRBDetectorToolStripMenuItem.Text = "ORB Detector";
+            this.oRBDetectorToolStripMenuItem.Click += new System.EventHandler(this.oRBDetectorToolStripMenuItem_Click);
+            // 
+            // mSERDetectorToolStripMenuItem
+            // 
+            this.mSERDetectorToolStripMenuItem.Name = "mSERDetectorToolStripMenuItem";
+            this.mSERDetectorToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
+            this.mSERDetectorToolStripMenuItem.Text = "MSER Detector";
+            this.mSERDetectorToolStripMenuItem.Click += new System.EventHandler(this.mSERDetectorToolStripMenuItem_Click);
+            // 
+            // edgeDetectionToolStripMenuItem
+            // 
+            this.edgeDetectionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cannyToolStripMenuItem,
+            this.sobelToolStripMenuItem,
+            this.lablacianToolStripMenuItem,
+            this.convexHullToolStripMenuItem});
+            this.edgeDetectionToolStripMenuItem.Name = "edgeDetectionToolStripMenuItem";
+            this.edgeDetectionToolStripMenuItem.Size = new System.Drawing.Size(261, 26);
+            this.edgeDetectionToolStripMenuItem.Text = "Edge Detection";
+            // 
+            // cannyToolStripMenuItem
+            // 
+            this.cannyToolStripMenuItem.Name = "cannyToolStripMenuItem";
+            this.cannyToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.cannyToolStripMenuItem.Text = "Canny";
+            this.cannyToolStripMenuItem.Click += new System.EventHandler(this.cannyToolStripMenuItem_Click);
+            // 
+            // sobelToolStripMenuItem
+            // 
+            this.sobelToolStripMenuItem.Name = "sobelToolStripMenuItem";
+            this.sobelToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.sobelToolStripMenuItem.Text = "Sobel";
+            this.sobelToolStripMenuItem.Click += new System.EventHandler(this.sobelToolStripMenuItem_Click);
+            // 
+            // lablacianToolStripMenuItem
+            // 
+            this.lablacianToolStripMenuItem.Name = "lablacianToolStripMenuItem";
+            this.lablacianToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.lablacianToolStripMenuItem.Text = "Lablacian";
+            this.lablacianToolStripMenuItem.Click += new System.EventHandler(this.lablacianToolStripMenuItem_Click);
+            // 
+            // convexHullToolStripMenuItem
+            // 
+            this.convexHullToolStripMenuItem.Name = "convexHullToolStripMenuItem";
+            this.convexHullToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.convexHullToolStripMenuItem.Text = "Convex Hull";
+            this.convexHullToolStripMenuItem.Click += new System.EventHandler(this.convexHullToolStripMenuItem_Click);
+            // 
+            // contourExtractionToolStripMenuItem
+            // 
+            this.contourExtractionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.findContourToolStripMenuItem,
+            this.findContourBySizeToolStripMenuItem});
+            this.contourExtractionToolStripMenuItem.Name = "contourExtractionToolStripMenuItem";
+            this.contourExtractionToolStripMenuItem.Size = new System.Drawing.Size(261, 26);
+            this.contourExtractionToolStripMenuItem.Text = "Contour Extraction";
+            // 
+            // findContourToolStripMenuItem
+            // 
+            this.findContourToolStripMenuItem.Name = "findContourToolStripMenuItem";
+            this.findContourToolStripMenuItem.Size = new System.Drawing.Size(228, 26);
+            this.findContourToolStripMenuItem.Text = "Find Contour";
+            // 
+            // findContourBySizeToolStripMenuItem
+            // 
+            this.findContourBySizeToolStripMenuItem.Name = "findContourBySizeToolStripMenuItem";
+            this.findContourBySizeToolStripMenuItem.Size = new System.Drawing.Size(228, 26);
+            this.findContourBySizeToolStripMenuItem.Text = "Find Contour By Size";
+            // 
+            // morpholocigalOperationToolStripMenuItem
+            // 
+            this.morpholocigalOperationToolStripMenuItem.Name = "morpholocigalOperationToolStripMenuItem";
+            this.morpholocigalOperationToolStripMenuItem.Size = new System.Drawing.Size(261, 26);
+            this.morpholocigalOperationToolStripMenuItem.Text = "Morphological Operation";
+            // 
+            // meanShiftSegmentationToolStripMenuItem
+            // 
+            this.meanShiftSegmentationToolStripMenuItem.Name = "meanShiftSegmentationToolStripMenuItem";
+            this.meanShiftSegmentationToolStripMenuItem.Size = new System.Drawing.Size(261, 26);
+            this.meanShiftSegmentationToolStripMenuItem.Text = "Mean Shift Segmentation";
+            // 
+            // overlayToolStripMenuItem
+            // 
+            this.overlayToolStripMenuItem.Name = "overlayToolStripMenuItem";
+            this.overlayToolStripMenuItem.Size = new System.Drawing.Size(261, 26);
+            this.overlayToolStripMenuItem.Text = "Overlay";
+            // 
+            // rToolStripMenuItem
+            // 
+            this.rToolStripMenuItem.Name = "rToolStripMenuItem";
+            this.rToolStripMenuItem.Size = new System.Drawing.Size(261, 26);
+            this.rToolStripMenuItem.Text = "Range Filter";
+            // 
+            // thersholdingToolStripMenuItem
+            // 
+            this.thersholdingToolStripMenuItem.Name = "thersholdingToolStripMenuItem";
+            this.thersholdingToolStripMenuItem.Size = new System.Drawing.Size(261, 26);
+            this.thersholdingToolStripMenuItem.Text = "Thersholding";
+            // 
+            // adaptiveThersholdingToolStripMenuItem
+            // 
+            this.adaptiveThersholdingToolStripMenuItem.Name = "adaptiveThersholdingToolStripMenuItem";
+            this.adaptiveThersholdingToolStripMenuItem.Size = new System.Drawing.Size(261, 26);
+            this.adaptiveThersholdingToolStripMenuItem.Text = "Adaptive Thersholding";
             // 
             // ımageDetectionToolStripMenuItem
             // 
@@ -153,7 +326,7 @@
             // selectTemplateToolStripMenuItem
             // 
             this.selectTemplateToolStripMenuItem.Name = "selectTemplateToolStripMenuItem";
-            this.selectTemplateToolStripMenuItem.Size = new System.Drawing.Size(297, 26);
+            this.selectTemplateToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
             this.selectTemplateToolStripMenuItem.Text = "Select Template";
             this.selectTemplateToolStripMenuItem.Click += new System.EventHandler(this.selectTemplateToolStripMenuItem_Click);
             // 
@@ -163,7 +336,7 @@
             this.aasdToolStripMenuItem,
             this.multiScaleTemplateMatchingToolStripMenuItem1});
             this.templateMatchingToolStripMenuItem1.Name = "templateMatchingToolStripMenuItem1";
-            this.templateMatchingToolStripMenuItem1.Size = new System.Drawing.Size(297, 26);
+            this.templateMatchingToolStripMenuItem1.Size = new System.Drawing.Size(220, 26);
             this.templateMatchingToolStripMenuItem1.Text = "Template Matching";
             // 
             // aasdToolStripMenuItem
@@ -179,6 +352,29 @@
             this.multiScaleTemplateMatchingToolStripMenuItem1.Size = new System.Drawing.Size(297, 26);
             this.multiScaleTemplateMatchingToolStripMenuItem1.Text = "Multi Scale Template Matching";
             this.multiScaleTemplateMatchingToolStripMenuItem1.Click += new System.EventHandler(this.multiScaleTemplateMatchingToolStripMenuItem1_Click);
+            // 
+            // featureMatchingToolStripMenuItem
+            // 
+            this.featureMatchingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bruteForceMatcherToolStripMenuItem,
+            this.fLANNMatcherToolStripMenuItem});
+            this.featureMatchingToolStripMenuItem.Name = "featureMatchingToolStripMenuItem";
+            this.featureMatchingToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
+            this.featureMatchingToolStripMenuItem.Text = "Feature Matching";
+            // 
+            // bruteForceMatcherToolStripMenuItem
+            // 
+            this.bruteForceMatcherToolStripMenuItem.Name = "bruteForceMatcherToolStripMenuItem";
+            this.bruteForceMatcherToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
+            this.bruteForceMatcherToolStripMenuItem.Text = "Brute Force Matcher";
+            this.bruteForceMatcherToolStripMenuItem.Click += new System.EventHandler(this.bruteForceMatcherToolStripMenuItem_Click);
+            // 
+            // fLANNMatcherToolStripMenuItem
+            // 
+            this.fLANNMatcherToolStripMenuItem.Name = "fLANNMatcherToolStripMenuItem";
+            this.fLANNMatcherToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
+            this.fLANNMatcherToolStripMenuItem.Text = "FLANN Matcher";
+            this.fLANNMatcherToolStripMenuItem.Click += new System.EventHandler(this.fLANNMatcherToolStripMenuItem_Click);
             // 
             // templateMatchingToolStripMenuItem
             // 
@@ -357,29 +553,6 @@
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp_1);
             // 
-            // featureMatchingToolStripMenuItem
-            // 
-            this.featureMatchingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bruteForceMatcherToolStripMenuItem,
-            this.fLANNMatcherToolStripMenuItem});
-            this.featureMatchingToolStripMenuItem.Name = "featureMatchingToolStripMenuItem";
-            this.featureMatchingToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.featureMatchingToolStripMenuItem.Text = "Feature Matching";
-            // 
-            // bruteForceMatcherToolStripMenuItem
-            // 
-            this.bruteForceMatcherToolStripMenuItem.Name = "bruteForceMatcherToolStripMenuItem";
-            this.bruteForceMatcherToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
-            this.bruteForceMatcherToolStripMenuItem.Text = "Brute Force Matcher";
-            this.bruteForceMatcherToolStripMenuItem.Click += new System.EventHandler(this.bruteForceMatcherToolStripMenuItem_Click);
-            // 
-            // fLANNMatcherToolStripMenuItem
-            // 
-            this.fLANNMatcherToolStripMenuItem.Name = "fLANNMatcherToolStripMenuItem";
-            this.fLANNMatcherToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
-            this.fLANNMatcherToolStripMenuItem.Text = "FLANN Matcher";
-            this.fLANNMatcherToolStripMenuItem.Click += new System.EventHandler(this.fLANNMatcherToolStripMenuItem_Click);
-            // 
             // Image_Processing_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -441,5 +614,25 @@
         private System.Windows.Forms.ToolStripMenuItem featureMatchingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bruteForceMatcherToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fLANNMatcherToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem featureDetectorsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem harrisDetectorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem shiThomasiDetectorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fastDetectorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem oRBDetectorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mSERDetectorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem edgeDetectionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cannyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sobelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lablacianToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem convexHullToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem contourExtractionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem findContourToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem findContourBySizeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem morpholocigalOperationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem meanShiftSegmentationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem overlayToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem thersholdingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adaptiveThersholdingToolStripMenuItem;
     }
 }
