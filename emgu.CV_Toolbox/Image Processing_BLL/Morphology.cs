@@ -2,6 +2,7 @@
 using Emgu.CV.Structure;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,7 @@ namespace emgu.CV_Toolbox.Image_Processing_BLL
     {
         
 
-        public Image<Bgr,byte> Morphological_Operation(Image<Bgr,byte> imgInput, Emgu.CV.CvEnum.MorphOp MorpOpType,int Iteration)
+        public Bitmap Morphological_Operation(Image<Bgr,byte> imgInput, Emgu.CV.CvEnum.MorphOp MorpOpType,int Iteration)
         {
             Mat kernel = CvInvoke.GetStructuringElement(Emgu.CV.CvEnum.ElementShape.Rectangle,
                 new System.Drawing.Size(5, 5),
@@ -26,7 +27,7 @@ namespace emgu.CV_Toolbox.Image_Processing_BLL
                     new System.Drawing.Point(-1, -1),
                     Iteration,
                     Emgu.CV.CvEnum.BorderType.Default,
-                    new MCvScalar(1.0));
+                    new MCvScalar(1.0)).AsBitmap();
         }
 
     }

@@ -82,6 +82,7 @@
             this.lblBGR = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.pnlPictureBox = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -89,6 +90,7 @@
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.pnlPictureBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -225,28 +227,28 @@
             // cannyToolStripMenuItem
             // 
             this.cannyToolStripMenuItem.Name = "cannyToolStripMenuItem";
-            this.cannyToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.cannyToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
             this.cannyToolStripMenuItem.Text = "Canny";
             this.cannyToolStripMenuItem.Click += new System.EventHandler(this.cannyToolStripMenuItem_Click);
             // 
             // sobelToolStripMenuItem
             // 
             this.sobelToolStripMenuItem.Name = "sobelToolStripMenuItem";
-            this.sobelToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.sobelToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
             this.sobelToolStripMenuItem.Text = "Sobel";
             this.sobelToolStripMenuItem.Click += new System.EventHandler(this.sobelToolStripMenuItem_Click);
             // 
             // lablacianToolStripMenuItem
             // 
             this.lablacianToolStripMenuItem.Name = "lablacianToolStripMenuItem";
-            this.lablacianToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.lablacianToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
             this.lablacianToolStripMenuItem.Text = "Lablacian";
             this.lablacianToolStripMenuItem.Click += new System.EventHandler(this.lablacianToolStripMenuItem_Click);
             // 
             // convexHullToolStripMenuItem
             // 
             this.convexHullToolStripMenuItem.Name = "convexHullToolStripMenuItem";
-            this.convexHullToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.convexHullToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
             this.convexHullToolStripMenuItem.Text = "Convex Hull";
             this.convexHullToolStripMenuItem.Click += new System.EventHandler(this.convexHullToolStripMenuItem_Click);
             // 
@@ -264,24 +266,28 @@
             this.findContourToolStripMenuItem.Name = "findContourToolStripMenuItem";
             this.findContourToolStripMenuItem.Size = new System.Drawing.Size(228, 26);
             this.findContourToolStripMenuItem.Text = "Find Contour";
+            this.findContourToolStripMenuItem.Click += new System.EventHandler(this.findContourToolStripMenuItem_Click);
             // 
             // findContourBySizeToolStripMenuItem
             // 
             this.findContourBySizeToolStripMenuItem.Name = "findContourBySizeToolStripMenuItem";
             this.findContourBySizeToolStripMenuItem.Size = new System.Drawing.Size(228, 26);
             this.findContourBySizeToolStripMenuItem.Text = "Find Contour By Size";
+            this.findContourBySizeToolStripMenuItem.Click += new System.EventHandler(this.findContourBySizeToolStripMenuItem_Click);
             // 
             // morpholocigalOperationToolStripMenuItem
             // 
             this.morpholocigalOperationToolStripMenuItem.Name = "morpholocigalOperationToolStripMenuItem";
             this.morpholocigalOperationToolStripMenuItem.Size = new System.Drawing.Size(261, 26);
             this.morpholocigalOperationToolStripMenuItem.Text = "Morphological Operation";
+            this.morpholocigalOperationToolStripMenuItem.Click += new System.EventHandler(this.morpholocigalOperationToolStripMenuItem_Click);
             // 
             // meanShiftSegmentationToolStripMenuItem
             // 
             this.meanShiftSegmentationToolStripMenuItem.Name = "meanShiftSegmentationToolStripMenuItem";
             this.meanShiftSegmentationToolStripMenuItem.Size = new System.Drawing.Size(261, 26);
-            this.meanShiftSegmentationToolStripMenuItem.Text = "Mean Shift Segmentation";
+            this.meanShiftSegmentationToolStripMenuItem.Text = "Mean Shift Filtering";
+            this.meanShiftSegmentationToolStripMenuItem.Click += new System.EventHandler(this.meanShiftSegmentationToolStripMenuItem_Click);
             // 
             // overlayToolStripMenuItem
             // 
@@ -528,7 +534,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.50814F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.49186F));
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.pnlPictureBox, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 28);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -539,12 +545,20 @@
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint_1);
             // 
+            // pnlPictureBox
+            // 
+            this.pnlPictureBox.Controls.Add(this.pictureBox1);
+            this.pnlPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlPictureBox.Location = new System.Drawing.Point(201, 3);
+            this.pnlPictureBox.Name = "pnlPictureBox";
+            this.pnlPictureBox.Size = new System.Drawing.Size(929, 464);
+            this.pnlPictureBox.TabIndex = 1;
+            // 
             // pictureBox1
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(201, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(43, 16);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(929, 464);
+            this.pictureBox1.Size = new System.Drawing.Size(850, 335);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -571,7 +585,8 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.pnlPictureBox.ResumeLayout(false);
+            this.pnlPictureBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -634,5 +649,6 @@
         private System.Windows.Forms.ToolStripMenuItem rToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thersholdingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adaptiveThersholdingToolStripMenuItem;
+        private System.Windows.Forms.Panel pnlPictureBox;
     }
 }

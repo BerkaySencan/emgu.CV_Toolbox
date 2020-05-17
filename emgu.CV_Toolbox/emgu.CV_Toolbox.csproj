@@ -95,6 +95,18 @@
     <Compile Include="Image_Proccesing_PL\Adaptive_Theresholding.Designer.cs">
       <DependentUpon>Adaptive_Theresholding.cs</DependentUpon>
     </Compile>
+    <Compile Include="Image_Proccesing_PL\Contour By Size.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Image_Proccesing_PL\Contour By Size.Designer.cs">
+      <DependentUpon>Contour By Size.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Image_Proccesing_PL\Contour.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Image_Proccesing_PL\Contour.Designer.cs">
+      <DependentUpon>Contour.cs</DependentUpon>
+    </Compile>
     <Compile Include="Image_Proccesing_PL\Image_Processing_Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +120,18 @@
     </Compile>
     <Compile Include="Image_Proccesing_PL\Bar.Designer.cs">
       <DependentUpon>Bar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Image_Proccesing_PL\MeanShiftFiltering.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Image_Proccesing_PL\MeanShiftFiltering.Designer.cs">
+      <DependentUpon>MeanShiftFiltering.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Image_Proccesing_PL\Morpholocigal Operation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Image_Proccesing_PL\Morpholocigal Operation.Designer.cs">
+      <DependentUpon>Morpholocigal Operation.cs</DependentUpon>
     </Compile>
     <Compile Include="Image_Proccesing_PL\TwoBar.cs">
       <SubType>Form</SubType>
@@ -132,11 +156,23 @@
     <EmbeddedResource Include="Image_Proccesing_PL\Adaptive_Theresholding.resx">
       <DependentUpon>Adaptive_Theresholding.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Image_Proccesing_PL\Contour By Size.resx">
+      <DependentUpon>Contour By Size.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Image_Proccesing_PL\Contour.resx">
+      <DependentUpon>Contour.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Image_Proccesing_PL\Image_Processing_Main.resx">
       <DependentUpon>Image_Processing_Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Image_Proccesing_PL\Bar.resx">
       <DependentUpon>Bar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Image_Proccesing_PL\MeanShiftFiltering.resx">
+      <DependentUpon>MeanShiftFiltering.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Image_Proccesing_PL\Morpholocigal Operation.resx">
+      <DependentUpon>Morpholocigal Operation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Image_Proccesing_PL\TwoBar.resx">
       <DependentUpon>TwoBar.cs</DependentUpon>

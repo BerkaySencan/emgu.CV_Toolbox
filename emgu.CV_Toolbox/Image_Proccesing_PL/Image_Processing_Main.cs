@@ -94,7 +94,9 @@ namespace emgu.CV_Toolbox.Image_Proccesing
 
         private void Image_Processing_Main_Load(object sender, EventArgs e)
         {
+            pnlPictureBox.AutoScroll = true;
 
+            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -569,8 +571,115 @@ namespace emgu.CV_Toolbox.Image_Proccesing
             }
         }
 
-        // ****** --------------   End  Edge Detection  -------------- ****** //
 
+
+        // ****** --------------   End  Edge Detection  -------------- ****** //
+        // ****** --------------   Start  Contour Extraction  -------------- ****** //
+
+        private void findContourToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (pictureBox1.Image != null)
+            {
+                try
+                {
+                    Contour frmBar = new Contour(pictureBox1, this);
+                        
+                    frmBar.OnApply += CE.findContours_Bgr;
+                    frmBar.ShowDialog();
+                }
+                catch (Exception msg)
+                {
+
+                    MessageBox.Show(msg.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("First, Select Image");
+            }
+        }
+
+        private void findContourBySizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                try
+                {
+                    Contour_By_Size frmBar = new Contour_By_Size(pictureBox1, this);
+
+                    frmBar.OnApply += CE.findContours_bySize;
+                    frmBar.ShowDialog();
+                }
+                catch (Exception msg)
+                {
+
+                    MessageBox.Show(msg.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("First, Select Image");
+            }
+        }
+
+
+
+        // ****** --------------   End  Contour Extraction  -------------- ****** //
+
+        // ****** --------------   Start  Morpholoji   -------------- ****** //
+
+        private void morpholocigalOperationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                try
+                {
+                    Morpholocigal_Operation frmBar = new Morpholocigal_Operation(pictureBox1, this);
+
+                    frmBar.OnApply += Morp.Morphological_Operation;
+                    frmBar.ShowDialog();
+                }
+                catch (Exception msg)
+                {
+
+                    MessageBox.Show(msg.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("First, Select Image");
+            }
+        }
+
+
+
+        // ****** --------------   End   Morpholoji   -------------- ****** //
+
+        // ****** --------------   Start  MeanShift   -------------- ****** //
+
+        private void meanShiftSegmentationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                try
+                {
+                    MeanShiftFiltering frmBar = new MeanShiftFiltering(pictureBox1, this);
+
+                    frmBar.OnApply += MN.CalcuateMeanshift;
+                    frmBar.ShowDialog();
+                }
+                catch (Exception msg)
+                {
+
+                    MessageBox.Show(msg.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("First, Select Image");
+            }
+        }
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
             if (selecting)

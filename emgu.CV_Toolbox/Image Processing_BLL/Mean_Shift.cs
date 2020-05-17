@@ -3,6 +3,7 @@ using Emgu.CV.Cuda;
 using Emgu.CV.Structure;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,19 +14,18 @@ namespace emgu.CV_Toolbox.Image_Processing_BLL
   public  class Mean_Shift : ImgProcessing_Base
     {
         
-        public Image<Bgra,byte> CalcuateMeanshift(Image<Bgra, byte> imgInput, int spatialWindow = 5, int colorWindow = 5, int MinSegmentSize = 20,int Iteration=1)
+        public Bitmap CalcuateMeanshift(Image<Bgr, byte> imgInput, int spatialWindow = 20, int colorWindow = 20, int MinSegmentSize = 1,int Iteration=1)
         {
 
            
-            Image<Bgra, byte> imgOutput = new Image<Bgra, byte>(imgInput.Width, imgInput.Height, new Bgra(0, 0, 0, 0));
-
-                //convert the image to BGRA as it requires a BGRA to pass it in constructor of CudaImage
-               
-                CudaImage<Bgra, byte> _inputCuda = new CudaImage<Bgra, byte>(imgInput);
-                CudaInvoke.MeanShiftSegmentation(_inputCuda, imgOutput, spatialWindow, colorWindow, MinSegmentSize, new MCvTermCriteria(Iteration),null);
+            Image<Bgr, byte> imgOutput = new Image<Bgr, byte>(imgInput.Width, imgInput.Height, new Bgr(0, 0, 0));
+         
                 
-           
-            return imgOutput;
+                CvInvoke.PyrMeanShiftFiltering(imgInput, imgOutput, spatialWindow, colorWindow, MinSegmentSize, new MCvTermCriteria(Iteration));
+                return imgOutput.AsBitmap();
+            
+
+            
 
         
         }

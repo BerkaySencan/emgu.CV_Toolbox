@@ -31,7 +31,7 @@ namespace emgu.CV_Toolbox.Image_Processing_BLL
             return imgContoursOutput;
         }
 
-        public Image<Bgr, byte> findContours_Bgr(Image<Bgr, byte> imgInput, Emgu.CV.CvEnum.RetrType retrType, Emgu.CV.CvEnum.ChainApproxMethod chainApproxMethod)
+        public Bitmap findContours_Bgr(Image<Bgr, byte> imgInput, Emgu.CV.CvEnum.RetrType retrType, Emgu.CV.CvEnum.ChainApproxMethod chainApproxMethod)
         {
 
             Image<Gray, byte> imgOutput = imgInput.Convert<Gray, byte>().ThresholdBinary(new Gray(100), new Gray(255));
@@ -41,14 +41,14 @@ namespace emgu.CV_Toolbox.Image_Processing_BLL
             CvInvoke.FindContours(imgOutput, contours, hier, retrType, chainApproxMethod);
             CvInvoke.DrawContours(imgInput, contours, -1, new MCvScalar(255, 0, 0));
 
-            return imgInput;
+            return imgInput.AsBitmap();
         }
        
         /*
          2 Verilen resimdeki kenarları siyah ile çizer 
          geriye threshold yapılmış resim döndürür bunuda farklı bir image boxta gostermek gerekir.
              */
-        public  Image<Bgr, byte> findContours_bySize(Image<Bgr, byte> imgInput,int width,int height,double area)
+        public  Bitmap findContours_bySize(Image<Bgr, byte> imgInput,int width,int height,double area)
         {
             Image<Gray, byte> imgout = imgInput.Convert<Gray, byte>().Not().ThresholdBinary(new Gray(50), new Gray(255));
             VectorOfVectorOfPoint contours = new VectorOfVectorOfPoint();
@@ -88,7 +88,7 @@ namespace emgu.CV_Toolbox.Image_Processing_BLL
                 CvInvoke.Rectangle(imgout1, rect, new MCvScalar(255, 255, 255), 3);
             }
 
-            return imgout1;
+            return imgout1.AsBitmap();
         }
     }
 }
