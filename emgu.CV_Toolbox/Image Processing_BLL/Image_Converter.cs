@@ -23,6 +23,7 @@ namespace emgu.CV_Toolbox.Image_Processing_BLL
                 }
                 Image<TColor, TDepth> outImg = new Image<TColor, TDepth>(img.Width, img.Height);
                 CvInvoke.CvtColor(img, outImg, convertTo);
+                CvInvoke.Imshow("Convert Image",outImg);
                 return outImg.AsBitmap();
             }
             catch (Exception e)

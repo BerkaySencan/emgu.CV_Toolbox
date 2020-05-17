@@ -107,6 +107,18 @@
     <Compile Include="Image_Proccesing_PL\Contour.Designer.cs">
       <DependentUpon>Contour.cs</DependentUpon>
     </Compile>
+    <Compile Include="Image_Proccesing_PL\frmAdaptiveThershold.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Image_Proccesing_PL\frmAdaptiveThershold.Designer.cs">
+      <DependentUpon>frmAdaptiveThershold.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Image_Proccesing_PL\frmTheresholding.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Image_Proccesing_PL\frmTheresholding.Designer.cs">
+      <DependentUpon>frmTheresholding.cs</DependentUpon>
+    </Compile>
     <Compile Include="Image_Proccesing_PL\Image_Processing_Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +144,12 @@
     </Compile>
     <Compile Include="Image_Proccesing_PL\Morpholocigal Operation.Designer.cs">
       <DependentUpon>Morpholocigal Operation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Image_Proccesing_PL\Range Filter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Image_Proccesing_PL\Range Filter.Designer.cs">
+      <DependentUpon>Range Filter.cs</DependentUpon>
     </Compile>
     <Compile Include="Image_Proccesing_PL\TwoBar.cs">
       <SubType>Form</SubType>
@@ -162,6 +180,12 @@
     <EmbeddedResource Include="Image_Proccesing_PL\Contour.resx">
       <DependentUpon>Contour.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Image_Proccesing_PL\frmAdaptiveThershold.resx">
+      <DependentUpon>frmAdaptiveThershold.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Image_Proccesing_PL\frmTheresholding.resx">
+      <DependentUpon>frmTheresholding.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Image_Proccesing_PL\Image_Processing_Main.resx">
       <DependentUpon>Image_Processing_Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -173,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Image_Proccesing_PL\Morpholocigal Operation.resx">
       <DependentUpon>Morpholocigal Operation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Image_Proccesing_PL\Range Filter.resx">
+      <DependentUpon>Range Filter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Image_Proccesing_PL\TwoBar.resx">
       <DependentUpon>TwoBar.cs</DependentUpon>

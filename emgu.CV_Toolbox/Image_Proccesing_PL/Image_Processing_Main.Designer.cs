@@ -84,6 +84,16 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pnlPictureBox = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.toGrayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bgr2BgraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bgr2RgbaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bgr2RgbToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bgr2XyzToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bgr2YCrCbToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bgr2HsvToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bgr2LuvToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bgr2HlsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bgr2YuvToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -157,8 +167,8 @@
             this.contourExtractionToolStripMenuItem,
             this.morpholocigalOperationToolStripMenuItem,
             this.meanShiftSegmentationToolStripMenuItem,
-            this.overlayToolStripMenuItem,
             this.rToolStripMenuItem,
+            this.overlayToolStripMenuItem,
             this.thersholdingToolStripMenuItem,
             this.adaptiveThersholdingToolStripMenuItem});
             this.ımageProccesiingToolStripMenuItem.Name = "ımageProccesiingToolStripMenuItem";
@@ -294,24 +304,28 @@
             this.overlayToolStripMenuItem.Name = "overlayToolStripMenuItem";
             this.overlayToolStripMenuItem.Size = new System.Drawing.Size(261, 26);
             this.overlayToolStripMenuItem.Text = "Overlay";
+            this.overlayToolStripMenuItem.Click += new System.EventHandler(this.overlayToolStripMenuItem_Click);
             // 
             // rToolStripMenuItem
             // 
             this.rToolStripMenuItem.Name = "rToolStripMenuItem";
             this.rToolStripMenuItem.Size = new System.Drawing.Size(261, 26);
             this.rToolStripMenuItem.Text = "Range Filter";
+            this.rToolStripMenuItem.Click += new System.EventHandler(this.rToolStripMenuItem_Click);
             // 
             // thersholdingToolStripMenuItem
             // 
             this.thersholdingToolStripMenuItem.Name = "thersholdingToolStripMenuItem";
             this.thersholdingToolStripMenuItem.Size = new System.Drawing.Size(261, 26);
             this.thersholdingToolStripMenuItem.Text = "Thersholding";
+            this.thersholdingToolStripMenuItem.Click += new System.EventHandler(this.thersholdingToolStripMenuItem_Click);
             // 
             // adaptiveThersholdingToolStripMenuItem
             // 
             this.adaptiveThersholdingToolStripMenuItem.Name = "adaptiveThersholdingToolStripMenuItem";
             this.adaptiveThersholdingToolStripMenuItem.Size = new System.Drawing.Size(261, 26);
             this.adaptiveThersholdingToolStripMenuItem.Text = "Adaptive Thersholding";
+            this.adaptiveThersholdingToolStripMenuItem.Click += new System.EventHandler(this.adaptiveThersholdingToolStripMenuItem_Click);
             // 
             // ımageDetectionToolStripMenuItem
             // 
@@ -399,6 +413,17 @@
             // 
             // colorToolStripMenuItem
             // 
+            this.colorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toGrayToolStripMenuItem,
+            this.bgr2BgraToolStripMenuItem,
+            this.bgr2RgbaToolStripMenuItem,
+            this.bgr2RgbToolStripMenuItem,
+            this.bgr2XyzToolStripMenuItem,
+            this.bgr2YCrCbToolStripMenuItem,
+            this.bgr2HsvToolStripMenuItem,
+            this.bgr2LuvToolStripMenuItem,
+            this.bgr2HlsToolStripMenuItem,
+            this.bgr2YuvToolStripMenuItem});
             this.colorToolStripMenuItem.Name = "colorToolStripMenuItem";
             this.colorToolStripMenuItem.Size = new System.Drawing.Size(127, 24);
             this.colorToolStripMenuItem.Text = "Color Converter";
@@ -567,6 +592,76 @@
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp_1);
             // 
+            // toGrayToolStripMenuItem
+            // 
+            this.toGrayToolStripMenuItem.Name = "toGrayToolStripMenuItem";
+            this.toGrayToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.toGrayToolStripMenuItem.Text = "Bgr2Gray";
+            this.toGrayToolStripMenuItem.Click += new System.EventHandler(this.toGrayToolStripMenuItem_Click);
+            // 
+            // bgr2BgraToolStripMenuItem
+            // 
+            this.bgr2BgraToolStripMenuItem.Name = "bgr2BgraToolStripMenuItem";
+            this.bgr2BgraToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.bgr2BgraToolStripMenuItem.Text = "Bgr2Bgra";
+            this.bgr2BgraToolStripMenuItem.Click += new System.EventHandler(this.bgr2BgraToolStripMenuItem_Click);
+            // 
+            // bgr2RgbaToolStripMenuItem
+            // 
+            this.bgr2RgbaToolStripMenuItem.Name = "bgr2RgbaToolStripMenuItem";
+            this.bgr2RgbaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.bgr2RgbaToolStripMenuItem.Text = "Bgr2Rgba";
+            this.bgr2RgbaToolStripMenuItem.Click += new System.EventHandler(this.bgr2RgbaToolStripMenuItem_Click);
+            // 
+            // bgr2RgbToolStripMenuItem
+            // 
+            this.bgr2RgbToolStripMenuItem.Name = "bgr2RgbToolStripMenuItem";
+            this.bgr2RgbToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.bgr2RgbToolStripMenuItem.Text = "Bgr2Rgb";
+            this.bgr2RgbToolStripMenuItem.Click += new System.EventHandler(this.bgr2RgbToolStripMenuItem_Click);
+            // 
+            // bgr2XyzToolStripMenuItem
+            // 
+            this.bgr2XyzToolStripMenuItem.Name = "bgr2XyzToolStripMenuItem";
+            this.bgr2XyzToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.bgr2XyzToolStripMenuItem.Text = "Bgr2Xyz";
+            this.bgr2XyzToolStripMenuItem.Click += new System.EventHandler(this.bgr2XyzToolStripMenuItem_Click);
+            // 
+            // bgr2YCrCbToolStripMenuItem
+            // 
+            this.bgr2YCrCbToolStripMenuItem.Name = "bgr2YCrCbToolStripMenuItem";
+            this.bgr2YCrCbToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.bgr2YCrCbToolStripMenuItem.Text = "Bgr2YCrCb";
+            this.bgr2YCrCbToolStripMenuItem.Click += new System.EventHandler(this.bgr2YCrCbToolStripMenuItem_Click);
+            // 
+            // bgr2HsvToolStripMenuItem
+            // 
+            this.bgr2HsvToolStripMenuItem.Name = "bgr2HsvToolStripMenuItem";
+            this.bgr2HsvToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.bgr2HsvToolStripMenuItem.Text = "Bgr2Hsv";
+            this.bgr2HsvToolStripMenuItem.Click += new System.EventHandler(this.bgr2HsvToolStripMenuItem_Click);
+            // 
+            // bgr2LuvToolStripMenuItem
+            // 
+            this.bgr2LuvToolStripMenuItem.Name = "bgr2LuvToolStripMenuItem";
+            this.bgr2LuvToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.bgr2LuvToolStripMenuItem.Text = "Bgr2Luv";
+            this.bgr2LuvToolStripMenuItem.Click += new System.EventHandler(this.bgr2LuvToolStripMenuItem_Click);
+            // 
+            // bgr2HlsToolStripMenuItem
+            // 
+            this.bgr2HlsToolStripMenuItem.Name = "bgr2HlsToolStripMenuItem";
+            this.bgr2HlsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.bgr2HlsToolStripMenuItem.Text = "Bgr2Hls";
+            this.bgr2HlsToolStripMenuItem.Click += new System.EventHandler(this.bgr2HlsToolStripMenuItem_Click);
+            // 
+            // bgr2YuvToolStripMenuItem
+            // 
+            this.bgr2YuvToolStripMenuItem.Name = "bgr2YuvToolStripMenuItem";
+            this.bgr2YuvToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.bgr2YuvToolStripMenuItem.Text = "Bgr2Yuv";
+            this.bgr2YuvToolStripMenuItem.Click += new System.EventHandler(this.bgr2YuvToolStripMenuItem_Click);
+            // 
             // Image_Processing_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -650,5 +745,15 @@
         private System.Windows.Forms.ToolStripMenuItem thersholdingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adaptiveThersholdingToolStripMenuItem;
         private System.Windows.Forms.Panel pnlPictureBox;
+        private System.Windows.Forms.ToolStripMenuItem toGrayToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bgr2BgraToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bgr2RgbaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bgr2RgbToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bgr2XyzToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bgr2YCrCbToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bgr2HsvToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bgr2LuvToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bgr2HlsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bgr2YuvToolStripMenuItem;
     }
 }

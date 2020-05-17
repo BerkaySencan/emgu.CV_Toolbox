@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,11 +16,11 @@ namespace emgu.CV_Toolbox.Image_Processing_BLL
         private  Image<Bgr, byte> _imgInput;
 
 
-        public Image<Gray,byte> RangeFilter(Image<Bgr, byte> imgInput, int min, int max)
+        public Bitmap RangeFilter(Image<Bgr, byte> imgInput, int min, int max)
         {
             _imgInput = imgInput;
             _imgOutput = imgInput.Convert<Gray, byte>().InRange(new Gray(min), new Gray(max)).Canny(10, 50);
-            return _imgOutput;
+            return _imgOutput.AsBitmap();
         }
 
         public Image<Bgr, byte> Overlay()

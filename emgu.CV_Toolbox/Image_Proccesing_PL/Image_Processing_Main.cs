@@ -345,7 +345,7 @@ namespace emgu.CV_Toolbox.Image_Proccesing
                                                   Emgu.CV.CvEnum.TemplateMatchingType.Sqdiff);
         }
 
-        // ****** --------------   Start  Matcher  -------------- ****** //
+        // Start  Matcher  -------------- ****** //
 
         private void multiScaleTemplateMatchingToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -369,11 +369,11 @@ namespace emgu.CV_Toolbox.Image_Proccesing
             pictureBox1.Image = mh.FLANNMatcher(imgList["Template"].Clone(), imgList["Input"].Clone());
         }
 
-        // ****** --------------   End  Matcher  -------------- ****** //
+                                            // End  Matcher  -------------- ****** //
 
 
 
-        // ****** --------------   Start  Feature Detection  -------------- ****** //
+        // Start  Feature Detection  -------------- ****** //
         private void mSERDetectorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (pictureBox1.Image != null)
@@ -483,9 +483,9 @@ namespace emgu.CV_Toolbox.Image_Proccesing
             }
         }
 
-        // ****** --------------   End  Feature Detection  -------------- ****** //
+                                            // End  Feature Detection  -------------- ****** //
 
-        // ****** --------------   Start  Edge Detection  -------------- ****** //
+        // Start  Edge Detection  -------------- ****** //
 
         private void cannyToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -573,8 +573,8 @@ namespace emgu.CV_Toolbox.Image_Proccesing
 
 
 
-        // ****** --------------   End  Edge Detection  -------------- ****** //
-        // ****** --------------   Start  Contour Extraction  -------------- ****** //
+                                            // End  Edge Detection  -------------- ****** //
+        // Start  Contour Extraction  -------------- ****** //
 
         private void findContourToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -625,9 +625,9 @@ namespace emgu.CV_Toolbox.Image_Proccesing
 
 
 
-        // ****** --------------   End  Contour Extraction  -------------- ****** //
+                                            // End  Contour Extraction  -------------- ****** //
 
-        // ****** --------------   Start  Morpholoji   -------------- ****** //
+        // Start  Morpholoji   -------------- ****** //
 
         private void morpholocigalOperationToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -654,9 +654,9 @@ namespace emgu.CV_Toolbox.Image_Proccesing
 
 
 
-        // ****** --------------   End   Morpholoji   -------------- ****** //
+                                            // End   Morpholoji   -------------- ****** //
 
-        // ****** --------------   Start  MeanShift   -------------- ****** //
+        // Start  MeanShift   -------------- ****** //
 
         private void meanShiftSegmentationToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -680,6 +680,178 @@ namespace emgu.CV_Toolbox.Image_Proccesing
                 MessageBox.Show("First, Select Image");
             }
         }
+
+
+
+                                            // End  MeanShift   -------------- ****** //
+
+        // Start  Overlay   -------------- ****** //
+
+        private void overlayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (pictureBox1.Image != null)
+            {
+                try
+                {
+
+                    pictureBox1.Image = SG.Overlay().ToBitmap();
+                    
+                }
+                catch (Exception msg)
+                {
+
+                    MessageBox.Show(msg.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("First, Select Image");
+            }
+        }
+
+                                            // End  Overlay   -------------- ****** //
+        // Start  RangeFilter   -------------- ****** //
+
+        private void rToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                try
+                {
+                    Range_Filter frmBar = new Range_Filter(pictureBox1, this);
+
+                    frmBar.OnApply += SG.RangeFilter;
+                    frmBar.ShowDialog();
+                }
+                catch (Exception msg)
+                {
+
+                    MessageBox.Show(msg.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("First, Select Image");
+            }
+        }
+                                            // End  RangeFilter   -------------- ****** //
+
+        // Start  Thersholding   -------------- ****** //
+        private void thersholdingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                try
+                {
+                    frmTheresholding frmBar = new frmTheresholding(pictureBox1, this);
+
+                    frmBar.OnApply += TH.Cal_ThresHolding;
+                    frmBar.ShowDialog();
+                }
+                catch (Exception msg)
+                {
+
+                    MessageBox.Show(msg.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("First, Select Image");
+            }
+        }
+                                            // End  Thersholding   -------------- ****** //
+
+        // Start Adaptive Thersholding   -------------- ****** //
+        private void adaptiveThersholdingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                try
+                {
+                    frmAdaptiveThershold frmBar = new frmAdaptiveThershold(pictureBox1, this);
+
+                    frmBar.OnApply += TH.Cal_Adaptive_ThresHolding;
+                    frmBar.ShowDialog();
+                }
+                catch (Exception msg)
+                {
+
+                    MessageBox.Show(msg.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("First, Select Image");
+            }
+        }
+
+
+
+                                              // End Adaptive Thersholding   -------------- ****** //
+        // Start Color Converter    -------------- ****** //
+        private void toGrayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = IC.toWhichType<Gray, byte>(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>(), 
+                ColorConversion.Bgr2Gray);
+            
+        }
+
+        private void bgr2BgraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = IC.toWhichType<Bgra, byte>(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>(),
+                ColorConversion.Bgr2Bgra);
+        }
+
+        private void bgr2RgbaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = IC.toWhichType<Rgba, byte>(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>(),
+                ColorConversion.Bgr2Rgba);
+        }
+
+        private void bgr2RgbToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = IC.toWhichType<Rgb, byte>(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>(),
+                ColorConversion.Bgr2Rgb);
+        }
+
+        private void bgr2XyzToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = IC.toWhichType<Xyz, byte>(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>(),
+                ColorConversion.Bgr2Xyz);
+        }
+
+        private void bgr2YCrCbToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = IC.toWhichType<Ycc, byte>(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>(),
+                ColorConversion.Bgr2YCrCb);
+        }
+
+        private void bgr2HsvToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = IC.toWhichType<Hsv, byte>(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>(),
+                ColorConversion.Bgr2Hsv);
+            
+        }
+
+        private void bgr2LuvToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = IC.toWhichType<Luv, byte>(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>(),
+                ColorConversion.Bgr2Luv);
+        }
+
+        private void bgr2HlsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = IC.toWhichType<Hls, byte>(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>(),
+                ColorConversion.Bgr2Hls);
+        }
+
+        private void bgr2YuvToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = IC.toWhichType<Ycc, byte>(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>(),
+                ColorConversion.Bgr2Yuv);
+        }
+
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
             if (selecting)
