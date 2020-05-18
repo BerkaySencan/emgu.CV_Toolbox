@@ -2,16 +2,26 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using emgu.CV_Toolbox.Image_Proccesing_PL;
 using emgu.CV_Toolbox.Image_Processing_BLL;
 using Emgu.CV;
+using Emgu.CV.Aruco;
+using Emgu.CV.Bioinspired;
 using Emgu.CV.CvEnum;
+using Emgu.CV.Dnn;
+using Emgu.CV.Face;
+using Emgu.CV.Shape;
+using Emgu.CV.Stitching;
 using Emgu.CV.Structure;
+using Emgu.CV.Util;
 
 namespace emgu.CV_Toolbox.Image_Proccesing
 {
@@ -28,13 +38,16 @@ namespace emgu.CV_Toolbox.Image_Proccesing
         bool SelectROI = false;
         Point StartROI, EndROI;
         bool saveTemplate = false;
-       public int rows, cols;
+        public int rows, cols;
         Rectangle rect = Rectangle.Empty;
         Point start, end;
         Rectangle rectROI;
-     public   Dictionary<string, Image<Bgr, byte>> imgList;
+        Color getColor;
+        public Dictionary<string, Image<Bgr, byte>> imgList;
 
         // Test       
+        Dnn_Based DnnBase = new Dnn_Based();
+        Filter2DTool FT = new Filter2DTool();
         Mean_Shift MN = new Mean_Shift();
         Edge_Detection ED = new Edge_Detection();
         ThreshHolding TH = new ThreshHolding();
@@ -45,7 +58,7 @@ namespace emgu.CV_Toolbox.Image_Proccesing
         Feature_Detection FD = new Feature_Detection();
         Image<Gray, byte> GrayImage;
         Image<Gray, float> GrayImageFloat;
-        Image<Bgr, byte> BgrImage;
+        public Image<Bgr, byte> BgrImage;
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -54,7 +67,7 @@ namespace emgu.CV_Toolbox.Image_Proccesing
             // ımageBox1.Image =  MN.Bgr_OpenImage();
 
             BgrImage = MN.Bgr_OpenImage();
-            
+
 
 
             //ımageBox1.Image = GrayImage;
@@ -76,7 +89,7 @@ namespace emgu.CV_Toolbox.Image_Proccesing
             //    20,//MinSegmentSize
             //    10);//Iteration
 
-             
+
 
             //ımageBox1.Image = SG.Overlay(); 
 
@@ -122,7 +135,7 @@ namespace emgu.CV_Toolbox.Image_Proccesing
                 AddImage(BgrImage, "Input");
                 cols = BgrImage.Width;
                 rows = BgrImage.Height;
-              //  pictureBox1.Image = IC.toWhichType<Gray, byte>(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>(), ColorConversion.Bgr2Hsv);
+                //  pictureBox1.Image = IC.toWhichType<Gray, byte>(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>(), ColorConversion.Bgr2Hsv);
 
 
                 //  pictureBox1.Image = SG.RangeFilter(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>(), 10, 100).AsBitmap();
@@ -134,9 +147,9 @@ namespace emgu.CV_Toolbox.Image_Proccesing
 
                 MessageBox.Show(ex.Message);
             }
-       
+
             ////pictureBox1.Image = BgrImage.AsBitmap();
-         
+
 
             //GrayImage = BgrImage[0].Convert<Gray, byte>();
 
@@ -157,16 +170,44 @@ namespace emgu.CV_Toolbox.Image_Proccesing
 
         }
 
-   
 
- 
 
-       
 
- 
+
+
+
+
 
         private void pictureBox1_MouseDown_1(object sender, MouseEventArgs e)
         {
+            try
+            {
+                if (pictureBox1.Image != null)
+                {   // the 'real thing':
+
+                    Bitmap bmp = new Bitmap(pictureBox1.Image);
+                    getColor = bmp.GetPixel(e.X, e.Y);
+                    lblBGR.Text = getColor.ToString();
+                    panel3.BackColor = getColor;
+                    bmp.Dispose();
+                }
+                else
+                {   // just the background:
+                    Bitmap bmp = new Bitmap(pictureBox1.ClientSize.Width, pictureBox1.Height);
+                    pictureBox1.DrawToBitmap(bmp, pictureBox1.ClientRectangle);
+                    getColor = bmp.GetPixel(e.X, e.Y);
+
+                    lblBGR.Text = getColor.ToString();
+                    panel3.BackColor = getColor;
+                    bmp.Dispose();
+                }
+            }
+            catch (Exception error)
+            {
+
+                MessageBox.Show(error.Message);
+            }
+
             if (selecting == true)
             {
                 down = true;
@@ -232,11 +273,11 @@ namespace emgu.CV_Toolbox.Image_Proccesing
             selecting = true;
         }
 
-      
 
-  
 
-      
+
+
+
 
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
@@ -250,11 +291,11 @@ namespace emgu.CV_Toolbox.Image_Proccesing
             }
         }
 
-     
+
 
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void templateMatchingToolStripMenuItem_Click(object sender, EventArgs e)
@@ -279,12 +320,34 @@ namespace emgu.CV_Toolbox.Image_Proccesing
                 img.ROI = Rectangle.Empty;
 
                 pictureBox1.Image = imgROI.ToBitmap();
+                
                 AddImage(imgROI, "ROI Image");
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void AddImage(Image<Bgr, byte> img, string keyName)
+        {
+            if (!treeView1.Nodes.ContainsKey(keyName))
+            {
+                TreeNode node = new TreeNode(keyName);
+                node.Name = keyName;
+                treeView1.Nodes.Add(node);
+                treeView1.SelectedNode = node;
+            }
+
+            if (!imgList.ContainsKey(keyName))
+            {
+                imgList.Add(keyName, img);
+
+            }
+            else
+            {
+                imgList[keyName] = img;
             }
         }
 
@@ -369,7 +432,7 @@ namespace emgu.CV_Toolbox.Image_Proccesing
             pictureBox1.Image = mh.FLANNMatcher(imgList["Template"].Clone(), imgList["Input"].Clone());
         }
 
-                                            // End  Matcher  -------------- ****** //
+        // End  Matcher  -------------- ****** //
 
 
 
@@ -437,8 +500,8 @@ namespace emgu.CV_Toolbox.Image_Proccesing
             {
                 MessageBox.Show("First, Select Image");
             }
-    
-            
+
+
         }
 
         private void fastDetectorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -483,7 +546,7 @@ namespace emgu.CV_Toolbox.Image_Proccesing
             }
         }
 
-                                            // End  Feature Detection  -------------- ****** //
+        // End  Feature Detection  -------------- ****** //
 
         // Start  Edge Detection  -------------- ****** //
 
@@ -517,7 +580,7 @@ namespace emgu.CV_Toolbox.Image_Proccesing
             {
                 try
                 {
-                    pictureBox1.Image = ED.Sobel_Detector(new Bitmap(pictureBox1.Image).ToImage<Gray, byte>()).AsBitmap<Gray,float>();
+                    pictureBox1.Image = ED.Sobel_Detector(new Bitmap(pictureBox1.Image).ToImage<Gray, byte>()).AsBitmap<Gray, float>();
                 }
                 catch (Exception msg)
                 {
@@ -573,7 +636,7 @@ namespace emgu.CV_Toolbox.Image_Proccesing
 
 
 
-                                            // End  Edge Detection  -------------- ****** //
+        // End  Edge Detection  -------------- ****** //
         // Start  Contour Extraction  -------------- ****** //
 
         private void findContourToolStripMenuItem_Click(object sender, EventArgs e)
@@ -584,7 +647,7 @@ namespace emgu.CV_Toolbox.Image_Proccesing
                 try
                 {
                     Contour frmBar = new Contour(pictureBox1, this);
-                        
+
                     frmBar.OnApply += CE.findContours_Bgr;
                     frmBar.ShowDialog();
                 }
@@ -625,7 +688,7 @@ namespace emgu.CV_Toolbox.Image_Proccesing
 
 
 
-                                            // End  Contour Extraction  -------------- ****** //
+        // End  Contour Extraction  -------------- ****** //
 
         // Start  Morpholoji   -------------- ****** //
 
@@ -654,7 +717,7 @@ namespace emgu.CV_Toolbox.Image_Proccesing
 
 
 
-                                            // End   Morpholoji   -------------- ****** //
+        // End   Morpholoji   -------------- ****** //
 
         // Start  MeanShift   -------------- ****** //
 
@@ -683,7 +746,7 @@ namespace emgu.CV_Toolbox.Image_Proccesing
 
 
 
-                                            // End  MeanShift   -------------- ****** //
+        // End  MeanShift   -------------- ****** //
 
         // Start  Overlay   -------------- ****** //
 
@@ -696,7 +759,7 @@ namespace emgu.CV_Toolbox.Image_Proccesing
                 {
 
                     pictureBox1.Image = SG.Overlay().ToBitmap();
-                    
+
                 }
                 catch (Exception msg)
                 {
@@ -710,7 +773,7 @@ namespace emgu.CV_Toolbox.Image_Proccesing
             }
         }
 
-                                            // End  Overlay   -------------- ****** //
+        // End  Overlay   -------------- ****** //
         // Start  RangeFilter   -------------- ****** //
 
         private void rToolStripMenuItem_Click(object sender, EventArgs e)
@@ -735,7 +798,7 @@ namespace emgu.CV_Toolbox.Image_Proccesing
                 MessageBox.Show("First, Select Image");
             }
         }
-                                            // End  RangeFilter   -------------- ****** //
+        // End  RangeFilter   -------------- ****** //
 
         // Start  Thersholding   -------------- ****** //
         private void thersholdingToolStripMenuItem_Click(object sender, EventArgs e)
@@ -760,7 +823,7 @@ namespace emgu.CV_Toolbox.Image_Proccesing
                 MessageBox.Show("First, Select Image");
             }
         }
-                                            // End  Thersholding   -------------- ****** //
+        // End  Thersholding   -------------- ****** //
 
         // Start Adaptive Thersholding   -------------- ****** //
         private void adaptiveThersholdingToolStripMenuItem_Click(object sender, EventArgs e)
@@ -788,13 +851,13 @@ namespace emgu.CV_Toolbox.Image_Proccesing
 
 
 
-                                              // End Adaptive Thersholding   -------------- ****** //
+        // End Adaptive Thersholding   -------------- ****** //
         // Start Color Converter    -------------- ****** //
         private void toGrayToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            pictureBox1.Image = IC.toWhichType<Gray, byte>(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>(), 
+            pictureBox1.Image = IC.toWhichType<Gray, byte>(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>(),
                 ColorConversion.Bgr2Gray);
-            
+
         }
 
         private void bgr2BgraToolStripMenuItem_Click(object sender, EventArgs e)
@@ -831,7 +894,7 @@ namespace emgu.CV_Toolbox.Image_Proccesing
         {
             pictureBox1.Image = IC.toWhichType<Hsv, byte>(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>(),
                 ColorConversion.Bgr2Hsv);
-            
+
         }
 
         private void bgr2LuvToolStripMenuItem_Click(object sender, EventArgs e)
@@ -850,6 +913,120 @@ namespace emgu.CV_Toolbox.Image_Proccesing
         {
             pictureBox1.Image = IC.toWhichType<Ycc, byte>(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>(),
                 ColorConversion.Bgr2Yuv);
+        }
+        // End Color Converter   -------------- ****** //
+        // Start Histogram     -------------- ****** //
+        private void redChannelHistogramToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                try
+                {
+                    frmHistogram frm = new frmHistogram(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>(), frmHistogram.ColorChannel.R);
+                    frm.ShowDialog();
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("First,Select Image");
+            }
+
+
+        }
+
+        private void greenChannelHistogramToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                try
+                {
+                    frmHistogram frm = new frmHistogram(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>(), frmHistogram.ColorChannel.G);
+                    frm.ShowDialog();
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("First,Select Image");
+            }
+
+
+        }
+
+        private void blueChannelHistogramToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                try
+                {
+                    frmHistogram frm = new frmHistogram(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>(), frmHistogram.ColorChannel.B);
+                    frm.ShowDialog();
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("First,Select Image");
+            }
+
+
+
+        }
+
+        private void bGRHistogramToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                try
+                {
+                    frmHistogram frm = new frmHistogram(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>(), frmHistogram.ColorChannel.BGR);
+                    frm.ShowDialog();
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("First,Select Image");
+            }
+
+
+        }
+
+        private void colorBasedMatchingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (pictureBox1.Image == null) { MessageBox.Show("First Select Image"); return; }
+
+                var img = new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>();
+                img._SmoothGaussian(5);
+
+                Bgr lower = new Bgr(getColor.B - 10, getColor.G - 10, getColor.R - 10);
+                Bgr higher = new Bgr(getColor.B + 10, getColor.G + 10, getColor.R + 10);
+
+                var mask = img.InRange(lower, higher).Not();
+                img.SetValue(new Bgr(0, 0, 0), mask);
+                pictureBox1.Image = img.AsBitmap();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
@@ -879,6 +1056,8 @@ namespace emgu.CV_Toolbox.Image_Proccesing
                 {
                     return;
                 }
+
+
 
                 if (showPixelValue)
                 {
@@ -918,31 +1097,92 @@ namespace emgu.CV_Toolbox.Image_Proccesing
             }
         }
 
-
-
-      
-
-        public void AddImage(Image<Bgr, byte> img, string keyName)
+        private void test2ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!treeView1.Nodes.ContainsKey(keyName))
-            {
-                TreeNode node = new TreeNode(keyName);
-                node.Name = keyName;
-                treeView1.Nodes.Add(node);
-                treeView1.SelectedNode = node;
-            }
+            DnnBase.TestDnnTensorFlow(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>());
+        }
 
-            if (!imgList.ContainsKey(keyName))
-            {
-                imgList.Add(keyName, img);
+        private void testToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+         
 
+
+        }
+
+        private void oilPaintingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                try
+                {
+                    Image<Bgr, byte> image = new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>();
+                    Mat m = image.Mat;
+                    Mat result = new Mat();
+                    Emgu.CV.XPhoto.XPhotoInvoke.OilPainting(m, result, 10, 1, ColorConversion.Bgr2Lab);
+                    pictureBox1.Image = result.ToBitmap();
+                }
+                catch (Exception erros)
+                {
+                    MessageBox.Show(erros.Message);
+                    throw;
+                }
             }
             else
             {
-                imgList[keyName] = img;
+                MessageBox.Show("first,Select Image");
+            }
+            
+        }
+
+        private void dFilterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (pictureBox1.Image != null)
+                {
+                    pictureBox1.Image = FT.TwoDimentionsFilter(new Bitmap(pictureBox1.Image));
+
+                }
+                else
+                {
+                    MessageBox.Show("First,Select Image");
+                }
+            }
+            catch (Exception error)
+            {
+
+                MessageBox.Show(error.Message);
+            }
+
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MN.Async_OpenImage(pictureBox1, this);
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
             }
         }
 
+        private void testToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Image<Bgr, byte> image = new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>();
 
+
+
+            pictureBox1.Image = DnnBase.Dnn_Face(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>())
+;
+        }
+
+      
+        // End Histogram    -------------- ****** // 
+
+        // Start Color Converter   -------------- ****** //
     }
 }

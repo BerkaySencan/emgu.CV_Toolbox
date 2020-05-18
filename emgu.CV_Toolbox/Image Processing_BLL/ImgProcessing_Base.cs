@@ -9,16 +9,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using emgu.CV_Toolbox.Image_Proccesing;
 
 namespace emgu.CV_Toolbox.Image_Processing_BLL
 {
  public class ImgProcessing_Base
     {
-        private Image<Bgra, byte> inputImg;
+        private Image<Bgr, byte> inputImg;
         private string imgPath="";
-        ImageBox _imgBox;
-    
+        PictureBox _imgBox;
+        Image_Processing_Main _main;
+
+
         public virtual Image<Bgra,byte> OpenImage()
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -49,11 +51,11 @@ namespace emgu.CV_Toolbox.Image_Processing_BLL
 
 
         }
-        public virtual void Async_OpenImage(ImageBox imgBox)
+        public virtual void Async_OpenImage(PictureBox imgBox, Image_Processing_Main main)
         {
             OpenFileDialog ofd = new OpenFileDialog();
             _imgBox = imgBox;
-
+            _main = main;
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 BackgroundWorker bgw = new BackgroundWorker();
@@ -72,12 +74,16 @@ namespace emgu.CV_Toolbox.Image_Processing_BLL
 
         private void Bgw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            _imgBox.Image = inputImg;
+            _imgBox.Image = inputImg.ToBitmap();
+            _main.BgrImage = inputImg;
+            _main.AddImage(_main.BgrImage, "Input");
+            _main.cols = _main.BgrImage.Width;
+            _main.rows = _main.BgrImage.Height;
         }
 
         private void Bgw_DoWork(object sender, DoWorkEventArgs e)
         {
-            inputImg = new Image<Bgra, byte>(imgPath);
+            inputImg = new Image<Bgr, byte>(imgPath);
         }
 
         public virtual void ShowImage(string path,string ImageName)

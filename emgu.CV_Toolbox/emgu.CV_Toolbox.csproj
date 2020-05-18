@@ -66,6 +66,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -80,6 +81,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Image Processing_BLL\Dnn_Based.cs" />
     <Compile Include="Image Processing_BLL\Feature_Detection.cs" />
     <Compile Include="Image Processing_BLL\Image_Converter.cs" />
     <Compile Include="Image Processing_BLL\Contour_Extraction.cs" />
@@ -112,6 +114,12 @@
     </Compile>
     <Compile Include="Image_Proccesing_PL\frmAdaptiveThershold.Designer.cs">
       <DependentUpon>frmAdaptiveThershold.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Image_Proccesing_PL\frmHistogram.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Image_Proccesing_PL\frmHistogram.Designer.cs">
+      <DependentUpon>frmHistogram.cs</DependentUpon>
     </Compile>
     <Compile Include="Image_Proccesing_PL\frmTheresholding.cs">
       <SubType>Form</SubType>
@@ -182,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Image_Proccesing_PL\frmAdaptiveThershold.resx">
       <DependentUpon>frmAdaptiveThershold.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Image_Proccesing_PL\frmHistogram.resx">
+      <DependentUpon>frmHistogram.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Image_Proccesing_PL\frmTheresholding.resx">
       <DependentUpon>frmTheresholding.cs</DependentUpon>
