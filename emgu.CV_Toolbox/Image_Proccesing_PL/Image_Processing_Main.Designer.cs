@@ -33,6 +33,10 @@
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jpegToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tfifToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bmpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ımageProccesiingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.featureDetectorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,11 +69,6 @@
             this.gaussianNoiseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hitOrMissToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ımageDifferenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ımageDetectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.test2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.testToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.oCRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.selectTemplateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.templateMatchingToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -110,10 +109,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pnlPictureBox = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.jpegToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tfifToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bmpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -131,7 +126,6 @@
             this.fileToolStripMenuItem,
             this.ımageProccesiingToolStripMenuItem,
             this.templateMatchingToolStripMenuItem,
-            this.ımageDetectionToolStripMenuItem,
             this.oCRToolStripMenuItem,
             this.colorToolStripMenuItem,
             this.utilToolStripMenuItem,
@@ -156,14 +150,14 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(170, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(170, 26);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.toolStripMenuItem1.Text = "Open Async";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
@@ -179,10 +173,38 @@
             this.saveAsToolStripMenuItem.Text = "Save As";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
+            // jpegToolStripMenuItem
+            // 
+            this.jpegToolStripMenuItem.Name = "jpegToolStripMenuItem";
+            this.jpegToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.jpegToolStripMenuItem.Text = ".Jpeg";
+            this.jpegToolStripMenuItem.Click += new System.EventHandler(this.jpegToolStripMenuItem_Click);
+            // 
+            // pngToolStripMenuItem
+            // 
+            this.pngToolStripMenuItem.Name = "pngToolStripMenuItem";
+            this.pngToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.pngToolStripMenuItem.Text = ".Png";
+            this.pngToolStripMenuItem.Click += new System.EventHandler(this.pngToolStripMenuItem_Click);
+            // 
+            // tfifToolStripMenuItem
+            // 
+            this.tfifToolStripMenuItem.Name = "tfifToolStripMenuItem";
+            this.tfifToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.tfifToolStripMenuItem.Text = ".Tiff";
+            this.tfifToolStripMenuItem.Click += new System.EventHandler(this.tfifToolStripMenuItem_Click);
+            // 
+            // bmpToolStripMenuItem
+            // 
+            this.bmpToolStripMenuItem.Name = "bmpToolStripMenuItem";
+            this.bmpToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.bmpToolStripMenuItem.Text = ".Bmp";
+            this.bmpToolStripMenuItem.Click += new System.EventHandler(this.bmpToolStripMenuItem_Click);
+            // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(170, 26);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
@@ -395,83 +417,44 @@
             // PyrUpToolStripMenuItem
             // 
             this.PyrUpToolStripMenuItem.Name = "PyrUpToolStripMenuItem";
-            this.PyrUpToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.PyrUpToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
             this.PyrUpToolStripMenuItem.Text = "PyrUp";
             this.PyrUpToolStripMenuItem.Click += new System.EventHandler(this.PyrUpToolStripMenuItem_Click_1);
             // 
             // pyrDownToolStripMenuItem
             // 
             this.pyrDownToolStripMenuItem.Name = "pyrDownToolStripMenuItem";
-            this.pyrDownToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.pyrDownToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
             this.pyrDownToolStripMenuItem.Text = "PyrDown";
             this.pyrDownToolStripMenuItem.Click += new System.EventHandler(this.pyrDownToolStripMenuItem_Click);
             // 
             // gaussianBlurToolStripMenuItem
             // 
             this.gaussianBlurToolStripMenuItem.Name = "gaussianBlurToolStripMenuItem";
-            this.gaussianBlurToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.gaussianBlurToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
             this.gaussianBlurToolStripMenuItem.Text = "Gaussian Blur";
             this.gaussianBlurToolStripMenuItem.Click += new System.EventHandler(this.gaussianBlurToolStripMenuItem_Click);
             // 
             // gaussianNoiseToolStripMenuItem
             // 
             this.gaussianNoiseToolStripMenuItem.Name = "gaussianNoiseToolStripMenuItem";
-            this.gaussianNoiseToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.gaussianNoiseToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
             this.gaussianNoiseToolStripMenuItem.Text = "Gaussian Noise";
             this.gaussianNoiseToolStripMenuItem.Click += new System.EventHandler(this.gaussianNoiseToolStripMenuItem_Click);
             // 
             // hitOrMissToolStripMenuItem
             // 
             this.hitOrMissToolStripMenuItem.Name = "hitOrMissToolStripMenuItem";
-            this.hitOrMissToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.hitOrMissToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
             this.hitOrMissToolStripMenuItem.Text = "Hit or Miss";
             this.hitOrMissToolStripMenuItem.Click += new System.EventHandler(this.hitOrMissToolStripMenuItem_Click);
             // 
             // ımageDifferenceToolStripMenuItem
             // 
             this.ımageDifferenceToolStripMenuItem.Name = "ımageDifferenceToolStripMenuItem";
-            this.ımageDifferenceToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.ımageDifferenceToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
             this.ımageDifferenceToolStripMenuItem.Text = "Image Difference";
             this.ımageDifferenceToolStripMenuItem.Click += new System.EventHandler(this.ımageDifferenceToolStripMenuItem_Click);
-            // 
-            // ımageDetectionToolStripMenuItem
-            // 
-            this.ımageDetectionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.testToolStripMenuItem,
-            this.test2ToolStripMenuItem,
-            this.testToolStripMenuItem1,
-            this.toolStripMenuItem2});
-            this.ımageDetectionToolStripMenuItem.Name = "ımageDetectionToolStripMenuItem";
-            this.ımageDetectionToolStripMenuItem.Size = new System.Drawing.Size(136, 24);
-            this.ımageDetectionToolStripMenuItem.Text = "Video Processing";
-            // 
-            // testToolStripMenuItem
-            // 
-            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(169, 26);
-            this.testToolStripMenuItem.Text = "dnn Face";
-            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
-            // 
-            // test2ToolStripMenuItem
-            // 
-            this.test2ToolStripMenuItem.Name = "test2ToolStripMenuItem";
-            this.test2ToolStripMenuItem.Size = new System.Drawing.Size(169, 26);
-            this.test2ToolStripMenuItem.Text = "Tenser Flow";
-            this.test2ToolStripMenuItem.Click += new System.EventHandler(this.test2ToolStripMenuItem_Click);
-            // 
-            // testToolStripMenuItem1
-            // 
-            this.testToolStripMenuItem1.Name = "testToolStripMenuItem1";
-            this.testToolStripMenuItem1.Size = new System.Drawing.Size(169, 26);
-            this.testToolStripMenuItem1.Text = "test3";
-            this.testToolStripMenuItem1.Click += new System.EventHandler(this.testToolStripMenuItem1_Click);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(169, 26);
-            this.toolStripMenuItem2.Text = "Knearst";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // oCRToolStripMenuItem
             // 
@@ -818,34 +801,6 @@
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp_1);
             // 
-            // jpegToolStripMenuItem
-            // 
-            this.jpegToolStripMenuItem.Name = "jpegToolStripMenuItem";
-            this.jpegToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.jpegToolStripMenuItem.Text = ".Jpeg";
-            this.jpegToolStripMenuItem.Click += new System.EventHandler(this.jpegToolStripMenuItem_Click);
-            // 
-            // pngToolStripMenuItem
-            // 
-            this.pngToolStripMenuItem.Name = "pngToolStripMenuItem";
-            this.pngToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.pngToolStripMenuItem.Text = ".Png";
-            this.pngToolStripMenuItem.Click += new System.EventHandler(this.pngToolStripMenuItem_Click);
-            // 
-            // tfifToolStripMenuItem
-            // 
-            this.tfifToolStripMenuItem.Name = "tfifToolStripMenuItem";
-            this.tfifToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.tfifToolStripMenuItem.Text = ".Tfif";
-            this.tfifToolStripMenuItem.Click += new System.EventHandler(this.tfifToolStripMenuItem_Click);
-            // 
-            // bmpToolStripMenuItem
-            // 
-            this.bmpToolStripMenuItem.Name = "bmpToolStripMenuItem";
-            this.bmpToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.bmpToolStripMenuItem.Text = ".Bmp";
-            this.bmpToolStripMenuItem.Click += new System.EventHandler(this.bmpToolStripMenuItem_Click);
-            // 
             // Image_Processing_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -880,7 +835,6 @@
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ımageProccesiingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ımageDetectionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem oCRToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem templateMatchingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem colorToolStripMenuItem;
@@ -944,11 +898,7 @@
         private System.Windows.Forms.ToolStripMenuItem bGRHistogramToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem colorBasedMatchingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dFilterToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem test2ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem oilPaintingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem shapeDetectionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pyrDownToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gaussianBlurToolStripMenuItem;

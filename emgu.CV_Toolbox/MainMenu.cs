@@ -25,7 +25,7 @@ namespace emgu.CV_Toolbox
         {
             panelImageProcessing.Visible = false;
             panelMachinLearning.Visible = false;
-            panelToolsSubMenu.Visible = false;
+            //panelToolsSubMenu.Visible = false;
         }
 
         private void showSubMenu(Panel subMenu)
@@ -46,15 +46,7 @@ namespace emgu.CV_Toolbox
 
         #region ImageProccesingSubMenu
 
-        private void btn_Image_1_Click_1(object sender, EventArgs e)
-        {
-            openChildForm(new Image_Proccesing.ImageProccesing_Main());
-            //..
-            //your codes
-            //..
-            hideSubMenu();
-            
-        }
+     
 
         private void btn_Image_2_Click_1(object sender, EventArgs e)
         {
@@ -93,7 +85,7 @@ namespace emgu.CV_Toolbox
         #region MachineLearningSubMenu
         private void btn_Machine_1_Click_1(object sender, EventArgs e)
         {
-            openChildForm(new Machine_Learning.MachineLearning_Main());
+            openChildForm(new Machine_Learning_PL.Dnn_Main());
             //..
             //your codes
             //..
@@ -102,6 +94,7 @@ namespace emgu.CV_Toolbox
 
         private void btn_Machine_2_Click_1(object sender, EventArgs e)
         {
+            openChildForm(new Machine_Learning_PL.Emgu_TensorFlow_Main());
             //..
             //your codes
             //..
@@ -110,6 +103,7 @@ namespace emgu.CV_Toolbox
 
         private void btn_Machine_3_Click_1(object sender, EventArgs e)
         {
+            openChildForm(new Machine_Learning_PL.Support_Vector_Machine());
             //..
             //your codes
             //..
@@ -118,6 +112,7 @@ namespace emgu.CV_Toolbox
 
         private void btn_Machine_4_Click_1(object sender, EventArgs e)
         {
+           
             //..
             //your codes
             //..
@@ -126,7 +121,7 @@ namespace emgu.CV_Toolbox
         #endregion
         private void btnTools_Click_1(object sender, EventArgs e)
         {
-            showSubMenu(panelToolsSubMenu);
+           // showSubMenu(panelToolsSubMenu);
         }
 
         #region ToolsSubMenu

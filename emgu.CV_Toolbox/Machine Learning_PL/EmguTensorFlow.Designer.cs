@@ -1,6 +1,6 @@
-﻿namespace emgu.CV_Toolbox.Image_Proccesing
+﻿namespace emgu.CV_Toolbox.Machine_Learning_PL
 {
-    partial class ImageProccesing_Main
+    partial class EmguTensorFlow
     {
         /// <summary>
         /// Required designer variable.
@@ -28,34 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(340, 217);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 17);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Image Proccesing";
-            // 
-            // ImageProccesing_Main
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
-            this.Name = "ImageProccesing_Main";
-            this.Text = "ImageProccesing_Main";
-            this.Load += new System.EventHandler(this.ImageProccesing_Main_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            this.Text = "EmguTensorFlow";
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
     }
 }

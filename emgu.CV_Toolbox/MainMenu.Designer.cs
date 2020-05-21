@@ -30,11 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.btnImageProcessing = new System.Windows.Forms.Button();
-            this.btn_Image_3 = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_Image_2 = new System.Windows.Forms.Button();
-            this.btn_Image_1 = new System.Windows.Forms.Button();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -43,12 +41,6 @@
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
-            this.panelToolsSubMenu = new System.Windows.Forms.Panel();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.btnTools = new System.Windows.Forms.Button();
-            this.btnEqualizer = new System.Windows.Forms.Button();
             this.panelMachinLearning = new System.Windows.Forms.Panel();
             this.btn_Machine_4 = new System.Windows.Forms.Button();
             this.btn_Machine_3 = new System.Windows.Forms.Button();
@@ -56,13 +48,11 @@
             this.btn_Machine_1 = new System.Windows.Forms.Button();
             this.btnMachineLearning = new System.Windows.Forms.Button();
             this.panelImageProcessing = new System.Windows.Forms.Panel();
-            this.btn_Image_4 = new System.Windows.Forms.Button();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelChildForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelSideMenu.SuspendLayout();
-            this.panelToolsSubMenu.SuspendLayout();
             this.panelMachinLearning.SuspendLayout();
             this.panelImageProcessing.SuspendLayout();
             this.SuspendLayout();
@@ -81,7 +71,7 @@
             this.btnImageProcessing.Location = new System.Drawing.Point(0, 92);
             this.btnImageProcessing.Name = "btnImageProcessing";
             this.btnImageProcessing.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnImageProcessing.Size = new System.Drawing.Size(229, 45);
+            this.btnImageProcessing.Size = new System.Drawing.Size(250, 45);
             this.btnImageProcessing.TabIndex = 1;
             this.btnImageProcessing.Text = "  Image Processing";
             this.btnImageProcessing.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -89,31 +79,13 @@
             this.btnImageProcessing.UseVisualStyleBackColor = false;
             this.btnImageProcessing.Click += new System.EventHandler(this.btnImageProcessing_Click_1);
             // 
-            // btn_Image_3
-            // 
-            this.btn_Image_3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_Image_3.FlatAppearance.BorderSize = 0;
-            this.btn_Image_3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(38)))), ((int)(((byte)(46)))));
-            this.btn_Image_3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(38)))), ((int)(((byte)(46)))));
-            this.btn_Image_3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Image_3.ForeColor = System.Drawing.Color.Silver;
-            this.btn_Image_3.Location = new System.Drawing.Point(0, 80);
-            this.btn_Image_3.Name = "btn_Image_3";
-            this.btn_Image_3.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btn_Image_3.Size = new System.Drawing.Size(229, 40);
-            this.btn_Image_3.TabIndex = 3;
-            this.btn_Image_3.Text = "Alt Başlık";
-            this.btn_Image_3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Image_3.UseVisualStyleBackColor = true;
-            this.btn_Image_3.Click += new System.EventHandler(this.btn_Image_3_Click_1);
-            // 
             // panelLogo
             // 
             this.panelLogo.Controls.Add(this.pictureBox1);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(229, 92);
+            this.panelLogo.Size = new System.Drawing.Size(250, 92);
             this.panelLogo.TabIndex = 0;
             // 
             // pictureBox1
@@ -122,7 +94,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(229, 92);
+            this.pictureBox1.Size = new System.Drawing.Size(250, 92);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -136,33 +108,15 @@
             this.btn_Image_2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(38)))), ((int)(((byte)(46)))));
             this.btn_Image_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Image_2.ForeColor = System.Drawing.Color.Silver;
-            this.btn_Image_2.Location = new System.Drawing.Point(0, 40);
+            this.btn_Image_2.Location = new System.Drawing.Point(0, 0);
             this.btn_Image_2.Name = "btn_Image_2";
             this.btn_Image_2.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btn_Image_2.Size = new System.Drawing.Size(229, 40);
+            this.btn_Image_2.Size = new System.Drawing.Size(250, 40);
             this.btn_Image_2.TabIndex = 2;
-            this.btn_Image_2.Text = "Deneme 2";
+            this.btn_Image_2.Text = "Image Processing Main";
             this.btn_Image_2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Image_2.UseVisualStyleBackColor = true;
             this.btn_Image_2.Click += new System.EventHandler(this.btn_Image_2_Click_1);
-            // 
-            // btn_Image_1
-            // 
-            this.btn_Image_1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_Image_1.FlatAppearance.BorderSize = 0;
-            this.btn_Image_1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(38)))), ((int)(((byte)(46)))));
-            this.btn_Image_1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(38)))), ((int)(((byte)(46)))));
-            this.btn_Image_1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Image_1.ForeColor = System.Drawing.Color.Silver;
-            this.btn_Image_1.Location = new System.Drawing.Point(0, 0);
-            this.btn_Image_1.Name = "btn_Image_1";
-            this.btn_Image_1.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btn_Image_1.Size = new System.Drawing.Size(229, 40);
-            this.btn_Image_1.TabIndex = 1;
-            this.btn_Image_1.Text = "Adaptive Theresholding";
-            this.btn_Image_1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Image_1.UseVisualStyleBackColor = true;
-            this.btn_Image_1.Click += new System.EventHandler(this.btn_Image_1_Click_1);
             // 
             // panelChildForm
             // 
@@ -234,9 +188,6 @@
             this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
             this.panelSideMenu.Controls.Add(this.btnExit);
             this.panelSideMenu.Controls.Add(this.btnHelp);
-            this.panelSideMenu.Controls.Add(this.panelToolsSubMenu);
-            this.panelSideMenu.Controls.Add(this.btnTools);
-            this.panelSideMenu.Controls.Add(this.btnEqualizer);
             this.panelSideMenu.Controls.Add(this.panelMachinLearning);
             this.panelSideMenu.Controls.Add(this.btnMachineLearning);
             this.panelSideMenu.Controls.Add(this.panelImageProcessing);
@@ -258,10 +209,10 @@
             this.btnExit.ForeColor = System.Drawing.Color.Silver;
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExit.Location = new System.Drawing.Point(0, 777);
+            this.btnExit.Location = new System.Drawing.Point(0, 549);
             this.btnExit.Name = "btnExit";
             this.btnExit.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnExit.Size = new System.Drawing.Size(229, 45);
+            this.btnExit.Size = new System.Drawing.Size(250, 45);
             this.btnExit.TabIndex = 9;
             this.btnExit.Text = "  Exit";
             this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -279,124 +230,16 @@
             this.btnHelp.ForeColor = System.Drawing.Color.Silver;
             this.btnHelp.Image = ((System.Drawing.Image)(resources.GetObject("btnHelp.Image")));
             this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHelp.Location = new System.Drawing.Point(0, 732);
+            this.btnHelp.Location = new System.Drawing.Point(0, 393);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnHelp.Size = new System.Drawing.Size(229, 45);
+            this.btnHelp.Size = new System.Drawing.Size(250, 45);
             this.btnHelp.TabIndex = 8;
             this.btnHelp.Text = "  Help";
             this.btnHelp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHelp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnHelp.UseVisualStyleBackColor = true;
             this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click_1);
-            // 
-            // panelToolsSubMenu
-            // 
-            this.panelToolsSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.panelToolsSubMenu.Controls.Add(this.button10);
-            this.panelToolsSubMenu.Controls.Add(this.button12);
-            this.panelToolsSubMenu.Controls.Add(this.button13);
-            this.panelToolsSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelToolsSubMenu.Location = new System.Drawing.Point(0, 602);
-            this.panelToolsSubMenu.Name = "panelToolsSubMenu";
-            this.panelToolsSubMenu.Size = new System.Drawing.Size(229, 130);
-            this.panelToolsSubMenu.TabIndex = 7;
-            // 
-            // button10
-            // 
-            this.button10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button10.FlatAppearance.BorderSize = 0;
-            this.button10.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(38)))), ((int)(((byte)(46)))));
-            this.button10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(38)))), ((int)(((byte)(46)))));
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.ForeColor = System.Drawing.Color.Silver;
-            this.button10.Location = new System.Drawing.Point(0, 80);
-            this.button10.Name = "button10";
-            this.button10.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button10.Size = new System.Drawing.Size(229, 40);
-            this.button10.TabIndex = 2;
-            this.button10.Text = "Alt Başlık";
-            this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click_1);
-            // 
-            // button12
-            // 
-            this.button12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button12.FlatAppearance.BorderSize = 0;
-            this.button12.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(38)))), ((int)(((byte)(46)))));
-            this.button12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(38)))), ((int)(((byte)(46)))));
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.ForeColor = System.Drawing.Color.Silver;
-            this.button12.Location = new System.Drawing.Point(0, 40);
-            this.button12.Name = "button12";
-            this.button12.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button12.Size = new System.Drawing.Size(229, 40);
-            this.button12.TabIndex = 1;
-            this.button12.Text = "Alt Başlık";
-            this.button12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click_1);
-            // 
-            // button13
-            // 
-            this.button13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button13.FlatAppearance.BorderSize = 0;
-            this.button13.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(38)))), ((int)(((byte)(46)))));
-            this.button13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(38)))), ((int)(((byte)(46)))));
-            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.ForeColor = System.Drawing.Color.Silver;
-            this.button13.Location = new System.Drawing.Point(0, 0);
-            this.button13.Name = "button13";
-            this.button13.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button13.Size = new System.Drawing.Size(229, 40);
-            this.button13.TabIndex = 0;
-            this.button13.Text = "Alt Başlık";
-            this.button13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click_1);
-            // 
-            // btnTools
-            // 
-            this.btnTools.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnTools.FlatAppearance.BorderSize = 0;
-            this.btnTools.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.btnTools.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(22)))), ((int)(((byte)(34)))));
-            this.btnTools.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTools.ForeColor = System.Drawing.Color.Silver;
-            this.btnTools.Image = ((System.Drawing.Image)(resources.GetObject("btnTools.Image")));
-            this.btnTools.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTools.Location = new System.Drawing.Point(0, 557);
-            this.btnTools.Name = "btnTools";
-            this.btnTools.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnTools.Size = new System.Drawing.Size(229, 45);
-            this.btnTools.TabIndex = 6;
-            this.btnTools.Text = "  Ana Başlık";
-            this.btnTools.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTools.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnTools.UseVisualStyleBackColor = true;
-            this.btnTools.Click += new System.EventHandler(this.btnTools_Click_1);
-            // 
-            // btnEqualizer
-            // 
-            this.btnEqualizer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnEqualizer.FlatAppearance.BorderSize = 0;
-            this.btnEqualizer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.btnEqualizer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(22)))), ((int)(((byte)(34)))));
-            this.btnEqualizer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEqualizer.ForeColor = System.Drawing.Color.Silver;
-            this.btnEqualizer.Image = ((System.Drawing.Image)(resources.GetObject("btnEqualizer.Image")));
-            this.btnEqualizer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEqualizer.Location = new System.Drawing.Point(0, 512);
-            this.btnEqualizer.Name = "btnEqualizer";
-            this.btnEqualizer.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnEqualizer.Size = new System.Drawing.Size(229, 45);
-            this.btnEqualizer.TabIndex = 5;
-            this.btnEqualizer.Text = "  Equalizer";
-            this.btnEqualizer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEqualizer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEqualizer.UseVisualStyleBackColor = true;
-            this.btnEqualizer.Click += new System.EventHandler(this.btnEqualizer_Click_1);
             // 
             // panelMachinLearning
             // 
@@ -406,9 +249,9 @@
             this.panelMachinLearning.Controls.Add(this.btn_Machine_2);
             this.panelMachinLearning.Controls.Add(this.btn_Machine_1);
             this.panelMachinLearning.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelMachinLearning.Location = new System.Drawing.Point(0, 347);
+            this.panelMachinLearning.Location = new System.Drawing.Point(0, 228);
             this.panelMachinLearning.Name = "panelMachinLearning";
-            this.panelMachinLearning.Size = new System.Drawing.Size(229, 165);
+            this.panelMachinLearning.Size = new System.Drawing.Size(250, 165);
             this.panelMachinLearning.TabIndex = 4;
             // 
             // btn_Machine_4
@@ -422,7 +265,7 @@
             this.btn_Machine_4.Location = new System.Drawing.Point(0, 120);
             this.btn_Machine_4.Name = "btn_Machine_4";
             this.btn_Machine_4.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btn_Machine_4.Size = new System.Drawing.Size(229, 40);
+            this.btn_Machine_4.Size = new System.Drawing.Size(250, 40);
             this.btn_Machine_4.TabIndex = 3;
             this.btn_Machine_4.Text = "Alt Başlık";
             this.btn_Machine_4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -440,9 +283,9 @@
             this.btn_Machine_3.Location = new System.Drawing.Point(0, 80);
             this.btn_Machine_3.Name = "btn_Machine_3";
             this.btn_Machine_3.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btn_Machine_3.Size = new System.Drawing.Size(229, 40);
+            this.btn_Machine_3.Size = new System.Drawing.Size(250, 40);
             this.btn_Machine_3.TabIndex = 2;
-            this.btn_Machine_3.Text = "Alt Başlık";
+            this.btn_Machine_3.Text = "Support Vector Machine";
             this.btn_Machine_3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Machine_3.UseVisualStyleBackColor = true;
             this.btn_Machine_3.Click += new System.EventHandler(this.btn_Machine_3_Click_1);
@@ -458,9 +301,9 @@
             this.btn_Machine_2.Location = new System.Drawing.Point(0, 40);
             this.btn_Machine_2.Name = "btn_Machine_2";
             this.btn_Machine_2.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btn_Machine_2.Size = new System.Drawing.Size(229, 40);
+            this.btn_Machine_2.Size = new System.Drawing.Size(250, 40);
             this.btn_Machine_2.TabIndex = 1;
-            this.btn_Machine_2.Text = "Alt Başlık";
+            this.btn_Machine_2.Text = "Emgu TensorFlow";
             this.btn_Machine_2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Machine_2.UseVisualStyleBackColor = true;
             this.btn_Machine_2.Click += new System.EventHandler(this.btn_Machine_2_Click_1);
@@ -476,9 +319,9 @@
             this.btn_Machine_1.Location = new System.Drawing.Point(0, 0);
             this.btn_Machine_1.Name = "btn_Machine_1";
             this.btn_Machine_1.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btn_Machine_1.Size = new System.Drawing.Size(229, 40);
+            this.btn_Machine_1.Size = new System.Drawing.Size(250, 40);
             this.btn_Machine_1.TabIndex = 0;
-            this.btn_Machine_1.Text = "deneme";
+            this.btn_Machine_1.Text = "Deep Neural Network";
             this.btn_Machine_1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Machine_1.UseVisualStyleBackColor = true;
             this.btn_Machine_1.Click += new System.EventHandler(this.btn_Machine_1_Click_1);
@@ -493,10 +336,10 @@
             this.btnMachineLearning.ForeColor = System.Drawing.Color.Silver;
             this.btnMachineLearning.Image = ((System.Drawing.Image)(resources.GetObject("btnMachineLearning.Image")));
             this.btnMachineLearning.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMachineLearning.Location = new System.Drawing.Point(0, 302);
+            this.btnMachineLearning.Location = new System.Drawing.Point(0, 183);
             this.btnMachineLearning.Name = "btnMachineLearning";
             this.btnMachineLearning.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnMachineLearning.Size = new System.Drawing.Size(229, 45);
+            this.btnMachineLearning.Size = new System.Drawing.Size(250, 45);
             this.btnMachineLearning.TabIndex = 3;
             this.btnMachineLearning.Text = "  Machine Learning";
             this.btnMachineLearning.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -507,33 +350,12 @@
             // panelImageProcessing
             // 
             this.panelImageProcessing.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.panelImageProcessing.Controls.Add(this.btn_Image_4);
-            this.panelImageProcessing.Controls.Add(this.btn_Image_3);
             this.panelImageProcessing.Controls.Add(this.btn_Image_2);
-            this.panelImageProcessing.Controls.Add(this.btn_Image_1);
             this.panelImageProcessing.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelImageProcessing.Location = new System.Drawing.Point(0, 137);
             this.panelImageProcessing.Name = "panelImageProcessing";
-            this.panelImageProcessing.Size = new System.Drawing.Size(229, 165);
+            this.panelImageProcessing.Size = new System.Drawing.Size(250, 46);
             this.panelImageProcessing.TabIndex = 2;
-            // 
-            // btn_Image_4
-            // 
-            this.btn_Image_4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_Image_4.FlatAppearance.BorderSize = 0;
-            this.btn_Image_4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(38)))), ((int)(((byte)(46)))));
-            this.btn_Image_4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(38)))), ((int)(((byte)(46)))));
-            this.btn_Image_4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Image_4.ForeColor = System.Drawing.Color.Silver;
-            this.btn_Image_4.Location = new System.Drawing.Point(0, 120);
-            this.btn_Image_4.Name = "btn_Image_4";
-            this.btn_Image_4.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btn_Image_4.Size = new System.Drawing.Size(229, 40);
-            this.btn_Image_4.TabIndex = 4;
-            this.btn_Image_4.Text = "Alt Başlık";
-            this.btn_Image_4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Image_4.UseVisualStyleBackColor = true;
-            this.btn_Image_4.Click += new System.EventHandler(this.btn_Image_4_Click_1);
             // 
             // MainMenu
             // 
@@ -552,7 +374,6 @@
             this.panelChildForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panelSideMenu.ResumeLayout(false);
-            this.panelToolsSubMenu.ResumeLayout(false);
             this.panelMachinLearning.ResumeLayout(false);
             this.panelImageProcessing.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -562,21 +383,13 @@
         #endregion
 
         private System.Windows.Forms.Button btnImageProcessing;
-        private System.Windows.Forms.Button btn_Image_3;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btn_Image_2;
-        private System.Windows.Forms.Button btn_Image_1;
         private System.Windows.Forms.Panel panelChildForm;
         private System.Windows.Forms.Panel panelSideMenu;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnHelp;
-        private System.Windows.Forms.Panel panelToolsSubMenu;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button btnTools;
-        private System.Windows.Forms.Button btnEqualizer;
         private System.Windows.Forms.Panel panelMachinLearning;
         private System.Windows.Forms.Button btn_Machine_4;
         private System.Windows.Forms.Button btn_Machine_3;
@@ -584,7 +397,6 @@
         private System.Windows.Forms.Button btn_Machine_1;
         private System.Windows.Forms.Button btnMachineLearning;
         private System.Windows.Forms.Panel panelImageProcessing;
-        private System.Windows.Forms.Button btn_Image_4;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;

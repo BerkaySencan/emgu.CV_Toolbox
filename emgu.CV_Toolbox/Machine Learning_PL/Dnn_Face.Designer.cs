@@ -49,7 +49,6 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
-            
             // 
             // MachineLearning_Main
             // 
@@ -57,10 +56,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "MachineLearning_Main";
-            this.Text = "MachineLearning_Main";
+            this.Text = "Deep Neurol Network";
             this.Load += new System.EventHandler(this.MachineLearning_Main_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

@@ -81,7 +81,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Image Processing_BLL\Dnn_Based.cs" />
+    <Compile Include="Machine Learning_PL\Support_Vector_Machine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Machine Learning_PL\Support_Vector_Machine.Designer.cs">
+      <DependentUpon>Support_Vector_Machine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Machine_Learning_BLL\Dnn_Based.cs" />
     <Compile Include="Image Processing_BLL\Feature_Detection.cs" />
     <Compile Include="Image Processing_BLL\Image_Converter.cs" />
     <Compile Include="Image Processing_BLL\Contour_Extraction.cs" />
@@ -92,12 +98,6 @@
     <Compile Include="Image Processing_BLL\Morphology.cs" />
     <Compile Include="Image Processing_BLL\Segmentation.cs" />
     <Compile Include="Image Processing_BLL\ThreshHolding.cs" />
-    <Compile Include="Image_Proccesing_PL\Adaptive_Theresholding.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Image_Proccesing_PL\Adaptive_Theresholding.Designer.cs">
-      <DependentUpon>Adaptive_Theresholding.cs</DependentUpon>
-    </Compile>
     <Compile Include="Image_Proccesing_PL\Contour By Size.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,11 +172,17 @@
     <Compile Include="Image_Proccesing_PL\TwoBar.Designer.cs">
       <DependentUpon>TwoBar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Machine Learning_PL\MachineLearning_Main.cs">
+    <Compile Include="Machine Learning_PL\Dnn_Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Machine Learning_PL\MachineLearning_Main.Designer.cs">
-      <DependentUpon>MachineLearning_Main.cs</DependentUpon>
+    <Compile Include="Machine Learning_PL\Dnn_Main.Designer.cs">
+      <DependentUpon>Dnn_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Machine Learning_PL\Emgu_TensorFlow_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Machine Learning_PL\Emgu_TensorFlow_Main.Designer.cs">
+      <DependentUpon>Emgu_TensorFlow_Main.cs</DependentUpon>
     </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
@@ -186,9 +192,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Image_Proccesing_PL\Adaptive_Theresholding.resx">
-      <DependentUpon>Adaptive_Theresholding.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Image_Proccesing_PL\Contour By Size.resx">
       <DependentUpon>Contour By Size.cs</DependentUpon>
     </EmbeddedResource>
@@ -225,8 +228,14 @@
     <EmbeddedResource Include="Image_Proccesing_PL\TwoBar.resx">
       <DependentUpon>TwoBar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Machine Learning_PL\MachineLearning_Main.resx">
-      <DependentUpon>MachineLearning_Main.cs</DependentUpon>
+    <EmbeddedResource Include="Machine Learning_PL\Dnn_Main.resx">
+      <DependentUpon>Dnn_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Machine Learning_PL\Emgu_TensorFlow_Main.resx">
+      <DependentUpon>Emgu_TensorFlow_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Machine Learning_PL\Support_Vector_Machine.resx">
+      <DependentUpon>Support_Vector_Machine.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
@@ -262,9 +271,7 @@
     <Content Include="Assets\Images\Koala.jpg" />
     <Content Include="License-LGPL.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Machine_Learning_BLL\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>

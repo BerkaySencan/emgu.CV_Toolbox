@@ -58,11 +58,9 @@ namespace emgu.CV_Toolbox.Image_Proccesing
         Segmentation SG = new Segmentation();
         Contour_Extraction CE = new Contour_Extraction();
         Image_Converter IC = new Image_Converter();
-        Feature_Detection FD = new Feature_Detection();
-        Image<Gray, byte> GrayImage;
-        Image<Gray, float> GrayImageFloat;
+        Feature_Detection FD = new Feature_Detection();  
         public Image<Bgr, byte> BgrImage;
-
+        //Test
         private void button1_Click(object sender, EventArgs e)
         {
             // MN.Async_OpenImage(ımageBox1);
@@ -1100,17 +1098,7 @@ namespace emgu.CV_Toolbox.Image_Proccesing
             }
         }
 
-        private void test2ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DnnBase.TestDnnTensorFlow(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>());
-        }
-
-        private void testToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-         
-
-
-        }
+    
 
         private void oilPaintingToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1152,14 +1140,7 @@ namespace emgu.CV_Toolbox.Image_Proccesing
         }
 
 
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            Image<Bgr, Byte> image = new Bitmap(pictureBox1.Image).ToImage<Bgr, Byte>();
-            Image<Bgr, Byte> result = new Image<Bgr, byte>(image.Size);
-            CvInvoke.FastNlMeansDenoisingColored(image, result, 3f, 10, 7, 21);
-            CvInvoke.Imshow("he",image.ConcateHorizontal(result));
 
-        }
 
         private void shapeDetectionToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1424,7 +1405,7 @@ namespace emgu.CV_Toolbox.Image_Proccesing
                     if (item.Checked)
                     {
                         SaveFileDialog dialog = new SaveFileDialog();
-                        dialog.Filter = "Images|*.tfif";
+                        dialog.Filter = "Images|*.tiff";
                         if (dialog.ShowDialog() == DialogResult.OK)
                         {
                             int width = Convert.ToInt32(imgList[list[item.Index]].Width);
@@ -1510,15 +1491,7 @@ namespace emgu.CV_Toolbox.Image_Proccesing
             }
         }
 
-        private void testToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Image<Bgr, byte> image = new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>();
 
-
-
-            pictureBox1.Image = DnnBase.Dnn_Face(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>())
-;
-        }
 
 
       
