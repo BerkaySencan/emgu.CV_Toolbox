@@ -23,32 +23,34 @@ namespace emgu.CV_Toolbox.Machine_Learning_PL
         }
         Dnn_Based dnn_Base = new Dnn_Based();
 
-        SVM svm;
+        public SVM svm;
+        public string Node;
         int Counter = 0;
+        bool IsDisplayImage = false;
 
-        string TraingDataPath = @"D:\Digits\mnist_train.csv";
-        string TestDataPath = @"D:\Digits\mnist_test.csv";
+        string TraingDataPath;
+        string TestDataPath;
 
-        Matrix<float> TrainData;
-        Matrix<float> TestData;
-        Matrix<int> TrainLabel;
-        Matrix<int> TestLabel;
+        public Matrix<float> TrainData;
+        public Matrix<float> TestData;
+        public Matrix<int> TrainLabel;
+        public Matrix<int> TestLabel;
         private void loadDtaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                LoadTrainData();
-                LoadTestData();
-                MessageBox.Show("Data loaded.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+          
         }
 
         private void LoadTrainData()
         {
+            
+            OpenFileDialog dialog = new OpenFileDialog();
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                TraingDataPath = dialog.FileName;
+            }
+
+            else { MessageBox.Show("Train File Error"); return; }
             List<float[]> trainList = new List<float[]>();
             List<int> trainLabel = new List<int>();
 
@@ -78,15 +80,23 @@ namespace emgu.CV_Toolbox.Machine_Learning_PL
         }
         private void LoadTestData()
         {
+            OpenFileDialog dialog = new OpenFileDialog();
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                TestDataPath = dialog.FileName;
+            }
+
+            else { MessageBox.Show("Test File Error"); return; }
             List<float[]> trainList = new List<float[]>();
             List<int> trainLabel = new List<int>();
 
             StreamReader reader = new StreamReader(TestDataPath);
 
             string line = "";
-            if (!File.Exists(TraingDataPath))
+            if (!File.Exists(TestDataPath))
             {
-                throw new Exception("File Not found");
+                throw new Exception("Test File Not found");
             }
 
             while ((line = reader.ReadLine()) != null)
@@ -129,24 +139,10 @@ namespace emgu.CV_Toolbox.Machine_Learning_PL
         {
             try
             {
-                if (File.Exists("svm.txt"))
-                {
-                    svm = new SVM();
-                    FileStorage file = new FileStorage("svm.txt", FileStorage.Mode.Read);
-                    svm.Read(file.GetNode("opencv_ml_svm"));
-                }
-                else
-                {
-                    svm = new SVM();
-                    svm.C = 100;
-                    svm.Type = SVM.SvmType.CSvc;
-                    svm.Gamma = 0.005;
-                    svm.SetKernel(SVM.SvmKernelType.Linear);
-                    svm.TermCriteria = new MCvTermCriteria(1000, 1e-6);
-                    svm.Train(TrainData, Emgu.CV.ML.MlEnum.DataLayoutType.RowSample, TrainLabel);
-                    svm.Save("svm.txt");
-                }
-                MessageBox.Show("SVM is trained.");
+                frm_Svm_Model frmModel = new frm_Svm_Model(this, svm=new SVM());
+                frmModel.ShowDialog();
+
+           
             }
             catch (Exception ex)
             {
@@ -172,23 +168,29 @@ namespace emgu.CV_Toolbox.Machine_Learning_PL
                 {
                     Matrix<float> row = TestData.GetRow(i);
                     float predict = svm.Predict(row);
-                    lblInput.Text = "Input Label:" + TestLabel[i, 0].ToString();
-                    lblPredict.Text = "Predicted Label" + predict.ToString();
+                    if (IsDisplayImage)
+                    {
+                        Image<Gray, byte> imgout = TrainData.GetRow(i).Mat.Reshape(0, 28).ToImage<Gray, byte>().ThresholdBinary(new Gray(30), new Gray(255));
+                        pictureBox1.Image = imgout.AsBitmap();
+                        lblInput.Text = "Input Label:" + TestLabel[i, 0].ToString();
+                        lblPredict.Text = "Predicted Label" + predict.ToString();
+                    }
+                   
                     if (predict == TestLabel[i, 0])
                     {
                         counter += 1;
                     }
 
-                  /*  if (IsDisplayImage == true)
+                    if (IsDisplayImage == true)
                     {
-                        Image<Gray, byte> imgout = TestData.GetRow(Counter).Mat.Reshape(0, 28).ToImage<Gray, byte>().ThresholdBinary(new Gray(30), new Gray(255));
-                        pictureBox1.Image = imgout.Bitmap;
-                        await Task.Delay(1000);
+                        Image<Gray, byte> imgout = TestData.GetRow(i).Mat.Reshape(0, 28).ToImage<Gray, byte>().ThresholdBinary(new Gray(30), new Gray(255));
+                        pictureBox1.Image = imgout.AsBitmap();
+                        await Task.Delay(1);
                     }
                     else
                     {
                         await Task.Delay(1);
-                    }*/
+                    }
                 }
 
                 lblAccuracy.Text = "Accuracy = " + (counter / (float)(TestData.Rows));
@@ -197,6 +199,111 @@ namespace emgu.CV_Toolbox.Machine_Learning_PL
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void backToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (TrainData == null)
+            {
+                return;
+            }
+
+            if (Counter >= 0)
+            {
+
+                Image<Gray, byte> imgout = TrainData.GetRow(Counter).Mat.Reshape(0, 28).ToImage<Gray, byte>().ThresholdBinary(new Gray(30), new Gray(255));
+                pictureBox1.Image = imgout.AsBitmap();
+                Counter--;
+
+            }
+        }
+
+        private void nextToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (TrainData == null)
+            {
+                return;
+            }
+
+            if (Counter < TrainData.Rows - 1)
+            {
+                Counter++;
+
+                Image<Gray, byte> imgout = TrainData.GetRow(Counter).Mat.Reshape(0, 28).ToImage<Gray, byte>().ThresholdBinary(new Gray(30), new Gray(255));
+                pictureBox1.Image = imgout.AsBitmap();
+            }
+        }
+
+        private void chckBoxDisplay_CheckedChanged(object sender, EventArgs e)
+        {
+            IsDisplayImage = chckBoxDisplay.Checked;
+        }
+
+        private void trainDataLoadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LoadTrainData();
+                
+                MessageBox.Show("Train Data loaded.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void testDataLoadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                
+                LoadTestData();
+                MessageBox.Show("Test Data loaded.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void readTrainedSVMToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                SvmDialog frmDialog = new SvmDialog(this);
+                OpenFileDialog dialog = new OpenFileDialog();
+                //dialog.Filter = "*.txt|.txt";
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    svm = new SVM();
+                    FileStorage fs = new FileStorage(dialog.FileName, FileStorage.Mode.Read);  
+                    svm.Read(fs.GetRoot());
+                    fs.ReleaseAndGetString();
+                    MessageBox.Show("Read  Trained SVM");
+
+          
+
+                }
+                else
+                {
+                    MessageBox.Show("Error");
+                }
+               
+            }
+            catch (Exception error)
+            {
+
+                MessageBox.Show(error.Message);
+            }
+           
+         
+        }
+
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

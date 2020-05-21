@@ -81,11 +81,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Machine Learning_PL\frm_Svm_Model.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Machine Learning_PL\frm_Svm_Model.Designer.cs">
+      <DependentUpon>frm_Svm_Model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Machine Learning_PL\Support_Vector_Machine.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Machine Learning_PL\Support_Vector_Machine.Designer.cs">
       <DependentUpon>Support_Vector_Machine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Machine Learning_PL\SvmDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Machine Learning_PL\SvmDialog.Designer.cs">
+      <DependentUpon>SvmDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Machine_Learning_BLL\Dnn_Based.cs" />
     <Compile Include="Image Processing_BLL\Feature_Detection.cs" />
@@ -184,6 +196,7 @@
     <Compile Include="Machine Learning_PL\Emgu_TensorFlow_Main.Designer.cs">
       <DependentUpon>Emgu_TensorFlow_Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Machine_Learning_BLL\SVM_Base.cs" />
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,8 +247,14 @@
     <EmbeddedResource Include="Machine Learning_PL\Emgu_TensorFlow_Main.resx">
       <DependentUpon>Emgu_TensorFlow_Main.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Machine Learning_PL\frm_Svm_Model.resx">
+      <DependentUpon>frm_Svm_Model.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Machine Learning_PL\Support_Vector_Machine.resx">
       <DependentUpon>Support_Vector_Machine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Machine Learning_PL\SvmDialog.resx">
+      <DependentUpon>SvmDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
