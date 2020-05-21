@@ -161,6 +161,85 @@ namespace emgu.CV_Toolbox.Image_Processing_BLL
             }
         }
 
+        public Bitmap Shape_Detector(Image<Bgr,byte> img)
+        {
+            if ( img == null)
+            {
+                return null;
+            }
 
+            try
+            {
+                var temp = img.SmoothGaussian(5).Convert<Gray, byte>().ThresholdBinaryInv(new Gray(230), new Gray(255));
+
+                VectorOfVectorOfPoint contours = new VectorOfVectorOfPoint();
+                Mat m = new Mat();
+
+                CvInvoke.FindContours(temp, contours, m, Emgu.CV.CvEnum.RetrType.External, Emgu.CV.CvEnum.ChainApproxMethod.ChainApproxSimple);
+
+                for (int i = 0; i < contours.Size; i++)
+                {
+                    double perimeter = CvInvoke.ArcLength(contours[i], true);
+                    VectorOfPoint approx = new VectorOfPoint();
+                    CvInvoke.ApproxPolyDP(contours[i], approx, 0.04 * perimeter, true);
+
+                    CvInvoke.DrawContours(img, contours, i, new MCvScalar(0, 0, 255), 2);
+
+                    //moments  center of the shape
+
+                    var moments = CvInvoke.Moments(contours[i]);
+                    int x = (int)(moments.M10 / moments.M00);
+                    int y = (int)(moments.M01 / moments.M00);
+
+                    if (approx.Size == 3)
+                    {
+                        CvInvoke.PutText(img, "Triangle", new Point(x, y),
+                            Emgu.CV.CvEnum.FontFace.HersheySimplex, 0.5, new MCvScalar(0, 0, 255), 2);
+                    }
+
+                    if (approx.Size == 4)
+                    {
+                        Rectangle rect = CvInvoke.BoundingRectangle(contours[i]);
+
+                        double ar = (double)rect.Width / rect.Height;
+
+                        if (ar >= 0.95 && ar <= 1.05)
+                        {
+                            CvInvoke.PutText(img, "Square", new Point(x, y),
+                            Emgu.CV.CvEnum.FontFace.HersheySimplex, 0.5, new MCvScalar(0, 0, 255), 2);
+                        }
+                        else
+                        {
+                            CvInvoke.PutText(img, "Rectangle", new Point(x, y),
+                            Emgu.CV.CvEnum.FontFace.HersheySimplex, 0.5, new MCvScalar(0, 0, 255), 2);
+                        }
+
+                    }
+
+                    if (approx.Size == 6)
+                    {
+                        CvInvoke.PutText(img, "Hexagon", new Point(x, y),
+                            Emgu.CV.CvEnum.FontFace.HersheySimplex, 0.5, new MCvScalar(0, 0, 255), 2);
+                    }
+
+
+                    if (approx.Size > 6)
+                    {
+                        CvInvoke.PutText(img, "Circle", new Point(x, y),
+                            Emgu.CV.CvEnum.FontFace.HersheySimplex, 0.5, new MCvScalar(0, 0, 255), 2);
+                    }
+
+                    
+
+                }
+                return img.AsBitmap();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
     }
 }
+

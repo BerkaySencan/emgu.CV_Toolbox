@@ -36,7 +36,6 @@
             this.btn_Image_2 = new System.Windows.Forms.Button();
             this.btn_Image_1 = new System.Windows.Forms.Button();
             this.panelChildForm = new System.Windows.Forms.Panel();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -168,7 +167,6 @@
             // panelChildForm
             // 
             this.panelChildForm.BackColor = System.Drawing.Color.Transparent;
-            this.panelChildForm.Controls.Add(this.listBox1);
             this.panelChildForm.Controls.Add(this.textBox2);
             this.panelChildForm.Controls.Add(this.textBox3);
             this.panelChildForm.Controls.Add(this.textBox1);
@@ -178,15 +176,6 @@
             this.panelChildForm.Name = "panelChildForm";
             this.panelChildForm.Size = new System.Drawing.Size(1170, 594);
             this.panelChildForm.TabIndex = 5;
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(112, 3);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(813, 228);
-            this.listBox1.TabIndex = 2;
             // 
             // textBox2
             // 
@@ -597,7 +586,6 @@
         private System.Windows.Forms.Panel panelImageProcessing;
         private System.Windows.Forms.Button btn_Image_4;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox3;

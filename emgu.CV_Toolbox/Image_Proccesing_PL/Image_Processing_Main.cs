@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -18,6 +19,7 @@ using Emgu.CV.Bioinspired;
 using Emgu.CV.CvEnum;
 using Emgu.CV.Dnn;
 using Emgu.CV.Face;
+using Emgu.CV.ML;
 using Emgu.CV.Shape;
 using Emgu.CV.Stitching;
 using Emgu.CV.Structure;
@@ -47,6 +49,7 @@ namespace emgu.CV_Toolbox.Image_Proccesing
 
         // Test       
         Dnn_Based DnnBase = new Dnn_Based();
+        Image_General IG = new Image_General();
         Filter2DTool FT = new Filter2DTool();
         Mean_Shift MN = new Mean_Shift();
         Edge_Detection ED = new Edge_Detection();
@@ -295,7 +298,7 @@ namespace emgu.CV_Toolbox.Image_Proccesing
 
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void templateMatchingToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1133,6 +1136,343 @@ namespace emgu.CV_Toolbox.Image_Proccesing
             }
             
         }
+        public static void TestOpenCL(Action test)
+        {
+            Trace.WriteLine("Testing without OpenCL");
+
+            CvInvoke.UseOpenCL = false;
+            test();
+            if (CvInvoke.HaveOpenCL)
+            {
+                CvInvoke.UseOpenCL = true;
+                Trace.WriteLine("Testing with OpenCL");
+                test();
+                CvInvoke.OclFinish();
+            }
+        }
+
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Image<Bgr, Byte> image = new Bitmap(pictureBox1.Image).ToImage<Bgr, Byte>();
+            Image<Bgr, Byte> result = new Image<Bgr, byte>(image.Size);
+            CvInvoke.FastNlMeansDenoisingColored(image, result, 3f, 10, 7, 21);
+            CvInvoke.Imshow("he",image.ConcateHorizontal(result));
+
+        }
+
+        private void shapeDetectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = FD.Shape_Detector(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>());
+        }
+
+
+
+        private void PyrUpToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                try
+                {
+
+                    AddImage(IG.PyrUp(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>()), "PyrUp");
+                    if (!imgList.ContainsKey("PyrUp"))
+                    {
+                        MessageBox.Show("PyrUp Doesn't Exist");
+                    }
+                    else
+                    {
+                        pictureBox1.Image = imgList["PyrUp"].AsBitmap();
+                    }
+                   
+
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("First,Select Image");
+            }
+        }
+
+        private void pyrDownToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                try
+                {
+
+                    AddImage(IG.PyrDown(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>()), "PyrDown");
+                    if (!imgList.ContainsKey("PyrDown"))
+                    {
+                        MessageBox.Show("PyrDown Doesn't Exist");
+                    }
+                    else
+                    {
+                        pictureBox1.Image = imgList["PyrDown"].AsBitmap();
+                    }
+
+
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("First,Select Image");
+            }
+        }
+
+        private void gaussianBlurToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                try
+                {
+                    frmGaussianBlur frm = new frmGaussianBlur(pictureBox1, this);
+
+                    frm.OnApply += IG.GaussianBlur;
+                    frm.ShowDialog();
+
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("First,Select Image");
+            }
+        }
+
+        private void gaussianNoiseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                try
+                {
+
+                    AddImage(IG.GaussianNoise(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>()), "Gaussian Noise");
+                    if (!imgList.ContainsKey("Gaussian Noise"))
+                    {
+                        MessageBox.Show("Gaussian Noise Doesn't Exist");
+                    }
+                    else
+                    {
+                        pictureBox1.Image = imgList["Gaussian Noise"].AsBitmap();
+                    }
+
+
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("First,Select Image");
+            }
+        }
+
+        private void hitOrMissToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                try
+                {
+
+                    pictureBox1.Image = IG.HitOrMiss(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>());
+
+
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("First,Select Image");
+            }
+        }
+
+        private void ımageDifferenceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                try
+                {
+
+                    List<string> list = new List<string>();
+                    foreach (TreeNode item in treeView1.Nodes)
+                    {
+                        if (item.Checked)
+                        {
+                            list.Add(item.Text);
+                        }
+                    }
+                    if (list.Count > 1)
+                    {
+                        var mat = new Mat();
+                        CvInvoke.AbsDiff(imgList[list[0]], imgList[list[1]], mat);
+                        AddImage(mat.ToImage<Bgr, byte>(), "Image Difference");
+                        pictureBox1.Image = mat.ToBitmap();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Select two images.");
+                    }
+
+
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("First,Select Image");
+            }
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+      
+        }
+
+        private void jpegToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+               
+                List<string> list = new List<string>();
+                foreach (TreeNode item in treeView1.Nodes)
+                {
+                    list.Add(item.Text);
+                    if (item.Checked)
+                    {
+                        SaveFileDialog dialog = new SaveFileDialog();
+                        dialog.Filter = "Images|*.jpg";
+                        if (dialog.ShowDialog() == DialogResult.OK)
+                        {
+                            int width = Convert.ToInt32(imgList[list[item.Index]].Width);
+                            int height = Convert.ToInt32(imgList[list[item.Index]].Height);
+                            Bitmap bmp = new Bitmap(width, height);
+                            pictureBox1.DrawToBitmap(bmp, new Rectangle(0, 0, width, height));
+                            bmp.Save(dialog.FileName, ImageFormat.Jpeg);
+                        }
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+
+                MessageBox.Show(error.Message);
+            }
+    
+        }
+
+        private void pngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                List<string> list = new List<string>();
+                foreach (TreeNode item in treeView1.Nodes)
+                {
+                    list.Add(item.Text);
+                    if (item.Checked)
+                    {
+                        SaveFileDialog dialog = new SaveFileDialog();
+                        dialog.Filter = "Images|*.png";
+                        if (dialog.ShowDialog() == DialogResult.OK)
+                        {
+                            int width = Convert.ToInt32(imgList[list[item.Index]].Width);
+                            int height = Convert.ToInt32(imgList[list[item.Index]].Height);
+                            Bitmap bmp = new Bitmap(width, height);
+                            pictureBox1.DrawToBitmap(bmp, new Rectangle(0, 0, width, height));
+                            bmp.Save(dialog.FileName, ImageFormat.Png);
+                        }
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+
+                MessageBox.Show(error.Message);
+            }
+        }
+
+        private void tfifToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                List<string> list = new List<string>();
+                foreach (TreeNode item in treeView1.Nodes)
+                {
+                    list.Add(item.Text);
+                    if (item.Checked)
+                    {
+                        SaveFileDialog dialog = new SaveFileDialog();
+                        dialog.Filter = "Images|*.tfif";
+                        if (dialog.ShowDialog() == DialogResult.OK)
+                        {
+                            int width = Convert.ToInt32(imgList[list[item.Index]].Width);
+                            int height = Convert.ToInt32(imgList[list[item.Index]].Height);
+                            Bitmap bmp = new Bitmap(width, height);
+                            pictureBox1.DrawToBitmap(bmp, new Rectangle(0, 0, width, height));
+                            bmp.Save(dialog.FileName, ImageFormat.Tiff);
+                        }
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+
+                MessageBox.Show(error.Message);
+            }
+        }
+
+        private void bmpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                List<string> list = new List<string>();
+                foreach (TreeNode item in treeView1.Nodes)
+                {
+                    list.Add(item.Text);
+                    if (item.Checked)
+                    {
+                        SaveFileDialog dialog = new SaveFileDialog();
+                        dialog.Filter = "Images|*.bmp";
+                        if (dialog.ShowDialog() == DialogResult.OK)
+                        {
+                            int width = Convert.ToInt32(imgList[list[item.Index]].Width);
+                            int height = Convert.ToInt32(imgList[list[item.Index]].Height);
+                            Bitmap bmp = new Bitmap(width, height);
+                            pictureBox1.DrawToBitmap(bmp, new Rectangle(0, 0, width, height));
+                            bmp.Save(dialog.FileName, ImageFormat.Bmp);
+                        }
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+
+                MessageBox.Show(error.Message);
+            }
+        }
 
         private void dFilterToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1179,6 +1519,7 @@ namespace emgu.CV_Toolbox.Image_Proccesing
             pictureBox1.Image = DnnBase.Dnn_Face(new Bitmap(pictureBox1.Image).ToImage<Bgr, byte>())
 ;
         }
+
 
       
         // End Histogram    -------------- ****** // 
